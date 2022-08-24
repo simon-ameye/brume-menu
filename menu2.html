@@ -2,58 +2,107 @@
 <html>
 <meta charset="utf-8">
 <title></title>
-<script>
-window.onload=function(){ with (new XMLHttpRequest()) {onreadystatechange=cb; open('GET','https://raw.githubusercontent.com/simon-ameye/brume-menu/master/menu.csv',true); responseType='text';send();}}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Bebas+Neue&family=Nunito&family=Yeseva+One&display=swap" rel="stylesheet">
 
-
-function process(input)
-{
-
-var lines = input.split('\n');
-var res = ""
-var words
-
-
-for (var i = 1; i < lines.length; i++)
-{
-	words = lines[i].split(';');
-	for (var j = 0; j <= 4; j++)
+<style>
+	h1
 	{
-		var word = words[j * 2]
-		if (word)
-		{
-			switch (j)
-			{
-				case 0:
-					res += "<h1>" + word + "<\h1>";
-					break;
-				case 1:
-					res += "<h2>" + word + "<\h2>";
-					break;
-				case 2:
-					res += "<h3>" + word + "<\h3>";
-					break;
-				case 3:
-					res += "<h4>" + word + "<\h4>";
-					break;
-				case 4:
-					res += "<h5>" + word + "<\h5>";
-					break;
-				default:
-					res += "<p>" + word + "<\p>";
+		color: rgb(83, 79, 79);
+		font-family: 'Yeseva One', cursive;
+		font-size: 400%;
+		text-align: center;
+	}
+	h2
+	{
+		color: rgb(83, 79, 79);
+		font-family: 'Yeseva One', cursive;
+		font-size: 200%;
+		text-align: center;
+	}
+	h3
+	{
+		color: rgb(83, 79, 79);
+		font-family: 'Bebas Neue', cursive;
+		font-size: 150%;
+		text-align: center;
+	}
+	h4
+	{
+		color: rgb(83, 79, 79);
+		font-family: 'Amatic SC', cursive;
+		font-size: 100%;
+		text-align: center;
+	}
+	h5
+	{
+		color: rgb(78, 33, 33);
+		font-family: 'Nunito', sans-serif;
+		font-size: 100%;
+		text-align: center;
+	}
+</style>
+<script>
+	var language = 0;
+	window.onload=function(){ with (new XMLHttpRequest()) {onreadystatechange=cb; open('GET','https://raw.githubusercontent.com/simon-ameye/brume-menu/master/menu.csv',true); responseType='text';send();}}
 
+	function process(input)
+	{
+		var lines = input.split('\n');
+		var res;
+		var words;
+		var i;
+		var j;
+		var word;
+
+		res = ""
+		for (i = 1; i < lines.length; i++)
+		{
+			words = lines[i].split(';');
+			for (j = 0; j <= 4; j++)
+			{
+				word = words[j * 2];
+				if (word)
+				{
+					if (language==1 && words[j * 2 + 1])
+					{
+						word = words[j * 2 + 1];
+					}
+					switch (j)
+					{
+						case 0:
+							res += "<h1>" + word + "<\h1>";
+							break;
+						case 1:
+							res += "<h2>" + word + "<\h2>";
+							break;
+						case 2:
+							res += "<h3>" + word + "<\h3>";
+							break;
+						case 3:
+							res += "<h4>" + word + "<\h4>";
+							break;
+						case 4:
+							res += "<h5>" + word + "<\h5>";
+							break;
+						default:
+							res += "<p>" + word + "<\p>";
+					}
+				}
 			}
 		}
+		return res;
 	}
-}
 
-return res;
+	function cb()
+	{
+		if(this.readyState===4)document.getElementById('content').innerHTML=process(this.responseText);
+	}
 
-}
-function cb(){if(this.readyState===4)document.getElementById('content').innerHTML=process(this.responseText); }
 </script>
 <body>
-<menubox id="content">
-</menubox>
+	<button onclick="language=1-language;cb()">Switch language 1</button>
+	<div id="content"></div>
 </body>
 </html>
