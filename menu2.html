@@ -42,10 +42,22 @@
 		font-size: 100%;
 		text-align: center;
 	}
+	.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
 </style>
 <script>
-	var language = 1;
-	window.onload=function(){ with (new XMLHttpRequest()) {onreadystatechange=cb; open('GET','https://raw.githubusercontent.com/simon-ameye/brume-menu/master/menu.csv',true); responseType='text';send();}}
+	try
+	{
+		parent.document.getElementsByTagName('iframe')[0].scrolling="no";
+	}
+	catch (error)
+	{}
+</script>
+<script>
+	var language = 0;
 
 	function process(input)
 	{
@@ -97,16 +109,23 @@
 
 	function cb()
 	{
-		document.getElementById('content').innerHTML=process(this.responseText);
-	}
-
-	function changeLanguage()
-	{
-		language=1-language;
-		console.log(language);
+		
+		fetch('https://raw.githubusercontent.com/simon-ameye/brume-menu/master/menu.csv')
+		.then(response => response.text())
+		.then(data =>
+		{
+			document.getElementById('content').innerHTML=process(data);
+		});
 	}
 
 </script>
-<button onclick="changeLanguage()">Switch language 1</button>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_France_%281794%E2%80%931815%2C_1830%E2%80%931974%2C_2020%E2%80%93present%29.svg/120px-Flag_of_France_%281794%E2%80%931815%2C_1830%E2%80%931974%2C_2020%E2%80%93present%29.svg.png" width="60" height="40" onclick="language=0;cb()"></img>
+<img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/120px-Flag_of_the_United_Kingdom.svg.png" width="60" height="40" onclick="language=1;cb()"></img>
 <div id="content"></div>
+<script>cb();</script>
+
+
+
+
+
 </html>
