@@ -52,6 +52,16 @@
 		//height: 0.0em;
 		//line-height: 1em;
 	}
+	h6
+	{
+		color: rgb(50, 49, 58);
+		font-family: 'Amatic', sans-serif;
+		font-size: 110%;
+		text-align: center;
+		font-weight: 200;
+		//height: 0.0em;
+		//line-height: 1em;
+	}
 	.row
 	{
 		display:inline-block;
@@ -101,7 +111,7 @@
 		for (i = 1; i < lines.length; i++)
 		{
 			words = lines[i].split(';');
-			for (j = 0; j <= 4; j++)
+			for (j = 0; j <= 5; j++)
 			{
 				word = words[j * 2];
 				if (word)
@@ -132,6 +142,9 @@
 							break;
 						case 4:
 							res += "<h5>" + word + "<\h5>";
+							break;
+						case 5:
+							res += "<h6>" + word + "<\h6>";
 							break;
 						default:
 							res += "<p>" + word + "<\p>";
