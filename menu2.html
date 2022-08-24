@@ -44,7 +44,7 @@
 	}
 </style>
 <script>
-	var language = 0;
+	var language = 1;
 	window.onload=function(){ with (new XMLHttpRequest()) {onreadystatechange=cb; open('GET','https://raw.githubusercontent.com/simon-ameye/brume-menu/master/menu.csv',true); responseType='text';send();}}
 
 	function process(input)
@@ -97,12 +97,16 @@
 
 	function cb()
 	{
-		if(this.readyState===4)document.getElementById('content').innerHTML=process(this.responseText);
+		document.getElementById('content').innerHTML=process(this.responseText);
+	}
+
+	function changeLanguage()
+	{
+		language=1-language;
+		console.log(language);
 	}
 
 </script>
-<body>
-	<button onclick="language=1-language;cb()">Switch language 1</button>
-	<div id="content"></div>
-</body>
+<button onclick="changeLanguage()">Switch language 1</button>
+<div id="content"></div>
 </html>
