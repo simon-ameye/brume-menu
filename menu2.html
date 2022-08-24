@@ -1,24 +1,59 @@
 <!DOCTYPE html>
 <html>
-<head>
 <meta charset="utf-8">
 <title></title>
 <script>
-window.onload=function(){ with (new XMLHttpRequest()) {
-  onreadystatechange=cb; open('GET','csv.txt',true); responseType='text';send();
-}}
-function cb(){if(this.readyState===4)document.getElementById('main')
-                                             .innerHTML=tbl(this.responseText); }
-function tbl(csv){ // do whatever is necessary to create your table here ...
- return csv.split('\n')
-           .map(function(tr,i){return '<tr><td>'
-                                     +tr.replace(/\t/g,'</td><td>')
-                                     +'</td></tr>';})
-           .join('\n'); }
+window.onload=function(){ with (new XMLHttpRequest()) {onreadystatechange=cb; open('GET','https://raw.githubusercontent.com/simon-ameye/brume-menu/master/menu.csv',true); responseType='text';send();}}
+
+
+function process(input)
+{
+
+var lines = input.split('\n');
+var res = ""
+var words
+
+
+for (var i = 1; i < lines.length; i++)
+{
+	words = lines[i].split(';');
+	for (var j = 0; j <= 4; j++)
+	{
+		var word = words[j * 2]
+		if (word)
+		{
+			switch (j)
+			{
+				case 0:
+					res += "<h1>" + word + "<\h1>";
+					break;
+				case 1:
+					res += "<h2>" + word + "<\h2>";
+					break;
+				case 2:
+					res += "<h3>" + word + "<\h3>";
+					break;
+				case 3:
+					res += "<h4>" + word + "<\h4>";
+					break;
+				case 4:
+					res += "<h5>" + word + "<\h5>";
+					break;
+				default:
+					res += "<p>" + word + "<\p>";
+
+			}
+		}
+	}
+}
+
+return res;
+
+}
+function cb(){if(this.readyState===4)document.getElementById('content').innerHTML=process(this.responseText); }
 </script>
-</head>
 <body>
-<h2>Hey, this is my fabulous "dynamic" html page!</h2>
-<table id="main"></table>
+<menubox id="content">
+</menubox>
 </body>
 </html>
