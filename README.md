@@ -30,5 +30,5 @@ English translation is eventually available for each word.
 		B[Google sites]
 		C[Github raw]
 		A-->|embedded website| B
-		C -->|menu tsv table| A
+		C-->|menu tsv table| A
 ```
