@@ -14,6 +14,7 @@
 		font-style: italic;
 		font-size: 400%;
 		text-align: center;
+		border-bottom: solid;
 	}
 	h2
 	{
@@ -81,6 +82,7 @@
  }*/
 
 </style>
+<!--
 <script>
 	try
 	{
@@ -89,6 +91,7 @@
 	catch (error)
 	{}
 </script>
+-->
 <script>
 	var language = 0;
 
@@ -117,35 +120,36 @@
 					switch (j)
 					{
 						case 0:
-							res += "<h1>" + word + "<\h1>";
+							res += "<h1>" + word + "</h1>";
 							break;
 						case 1:
-							res += "<h2>" + word + "<\h2>";
+							res += "<h2>" + word + "</h2>";
 							break;
 						case 2:
-							res += "<h3>" + word + "<\h3>";
+							res += "<h3>" + word + "</h3>";
 							//res += "<h3 class=\"alignleft\"></h3><h3 class=\"aligncenter\">";
 							//res += word;
 							//res += "</h3>";
 							break;
 						case 3:
-							res += "<h4>" + word + "<\h4>";
+							res += "<h4>" + word + "</h4>";
 							//res += "<h4 class=\"alignright\">";
 							//res += word;
 							//res += "<\h4></div><div style=\"clear: both;\"></div>";
 							break;
 						case 4:
-							res += "<h5>" + word + "<\h5>";
+							res += "<h5>" + word + "</h5>";
 							break;
 						case 5:
-							res += "<h6>" + word + "<\h6>";
+							res += "<h6>" + word + "</h6>";
 							break;
 						default:
-							res += "<p>" + word + "<\p>";
+							res += "<p>" + word + "</p>";
 					}
 				}
 			}
 		}
+		console.log(res);
 		return res;
 	}
 
@@ -163,11 +167,13 @@
 </script>
 
 
-<!--<h1>Carte liquide</h1>
-//<h2>Boissons fraîches</h2>
-//<div id="textbox">
-//<h3 class="alignleft"></h3><h3 class="aligncenter">Jus du jour</h3><h4 class="alignright">5,00 €</h4></div><div style="clear: both;"></div>
-//<h5>Pressé à froid minute</h5>-->
+<!--
+<h1>Carte liquide</h1>
+<h2>Boissons fraîches</h2>
+<div id="textbox">
+	<h3 class="alignleft"></h3><h3 class="aligncenter">Jus du jour</h3><h4 class="alignright">5,00 €</h4></div><div style="clear: both;"></div>
+	<h5>Pressé à froid minute</h5>
+-->
 
 <img src="https://github.com/simon-ameye/brume-menu/blob/master/fr.png?raw=true" width="60" height=auto onclick="language=0;cb()"></img>
 <img src="https://github.com/simon-ameye/brume-menu/blob/master/en.png?raw=true" width="60" height=auto onclick="language=1;cb()"></img>
