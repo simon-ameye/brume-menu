@@ -19,7 +19,7 @@ English translation is eventually available for each word, and shown if ```var l
 
 ```mermaid
   graph TD;
-      Github page --> Google sites : brumecoffeenice.fr;
+      "Github page" --> "Google sites : brumecoffeenice.fr";
       A-->C;
       B-->D;
       C-->D;
