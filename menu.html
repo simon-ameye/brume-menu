@@ -30,16 +30,6 @@
 		font-size: 170%;
 		font-weight: 700;
 	}
-	h4
-	{
-		color: rgb(83, 79, 79);
-		font-family: 'Nunito', cursive;
-		font-size: 110%;
-		font-weight: 400;
-		height: 0em;
-		line-height: 0em;
-
-	}
 	h5
 	{
 		color: rgb(14, 14, 14);
@@ -65,32 +55,7 @@
 		text-align:center;
 	}
 
-/*
-#textbox {display:flex; flex-flow:row wrap;}
- .alignleft {
- width:33.33333%;
- text-align:left;
- }
- .aligncenter {
- width:33.33333%;
- text-align:center;
- }
- .alignright {
- width:33.33333%;
- text-align:right;
- }*/
-
 </style>
-<!--
-<script>
-	try
-	{
-		parent.document.getElementsByTagName('iframe')[0].scrolling="no";
-	}
-	catch (error)
-	{}
-</script>
--->
 <script>
 	var language = 0;
 
@@ -125,19 +90,10 @@
 							res += "<h2>" + word + "</h2>";
 							break;
 						case 2:
-							//res += "<h3>" + word + "</h3>";
 							res += "<h3>" + word ;
-
-							//res += "<h3 class=\"alignleft\"></h3><h3 class=\"aligncenter\">";
-							//res += word;
-							//res += "</h3>";
 							break;
 						case 3:
 							res += "<FONT style=\"color: rgb(40, 40, 40); font-weight: 400;\">" + " - " + word + "</FONT>" + "</h3>";
-							//res += "<h4>" + word + "</h4>";
-							//res += "<h4 class=\"alignright\">";
-							//res += word;
-							//res += "<\h4></div><div style=\"clear: both;\"></div>";
 							break;
 						case 4:
 							res += "<h5>" + word + "</h5>";
@@ -167,19 +123,8 @@
 	}
 
 </script>
-
-
-<!--
-<h1>Carte liquide</h1>
-<h2>Boissons fraîches</h2>
-<div id="textbox">
-	<h3 class="alignleft"></h3><h3 class="aligncenter">Jus du jour</h3><h4 class="alignright">5,00 €</h4></div><div style="clear: both;"></div>
-	<h5>Pressé à froid minute</h5>
--->
-
 <img src="https://github.com/simon-ameye/brume-menu/blob/master/fr.svg?raw=true" width="60" height=auto onclick="language=0;cb()"></img>
 <img src="https://github.com/simon-ameye/brume-menu/blob/master/en.svg?raw=true" width="60" height=auto onclick="language=1;cb()"></img>
 <div id="content"></div>
 <script>cb();</script>
-
 </html>
