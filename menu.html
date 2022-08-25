@@ -71,7 +71,7 @@
 		res = ""
 		for (i = 1; i < lines.length; i++)
 		{
-			words = lines[i].split(';');
+			words = lines[i].split('	');
 			for (j = 0; j <= 5; j++)
 			{
 				word = words[j * 2];
@@ -114,7 +114,7 @@
 	function cb()
 	{
 		
-		fetch('https://raw.githubusercontent.com/simon-ameye/brume-menu/master/menu.csv')
+		fetch('https://raw.githubusercontent.com/simon-ameye/brume-menu/master/menu.tsv')
 		.then(response => response.text())
 		.then(data =>
 		{
