@@ -11,16 +11,17 @@ Google sites hosts restaurant website : https://www.brumecoffeenice.fr/
 Google sites menu page embeddes Github page
 
 ## Data
-Data is fetched using : ```fetch('https://raw.githubusercontent.com/simon-ameye/brume-menu/master/menu.tsv')```
+Data is fetched using : ```fetch()```
 
 ## Processing
-Function ```process(input)``` processes table data and returns HTML format string.
-English translation is eventually available for each word, and shown if ```var language = 1``` thanks to ```onclick``` event.
+JavaScript function ```process(input)``` processes table data and returns HTML format string.
+
+English translation is eventually available for each word.
+
+```process``` tries to parse translation if ```var language = 1``` thanks to ```onclick``` event.
 
 ```mermaid
-  graph TD;
-      "Github page" --> "Google sites : brumecoffeenice.fr";
-      A-->C;
-      B-->D;
-      C-->D;
+	graph TD
+		A[Github pages] -->|embedded| B[Google sites]
+		C[Github raw] -->|menu data| A
 ```
