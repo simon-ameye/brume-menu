@@ -2,18 +2,18 @@
 
 Here is the menu of our restaurant.
 
-Github pages hosts menu.html website : https://simon-ameye.github.io/brume-menu/menu.html
+Github hosts menu data as ```tsv``` table : https://raw.githubusercontent.com/simon-ameye/brume-menu/master/menu.tsv
 
-Google sites hosts restaurant website : https://www.brumecoffeenice.fr/
+menu.html formats table data to HTML using JavaScript
 
-Google sites menu page embeddes Github page
+menu.html is hosted by Github pages : https://simon-ameye.github.io/brume-menu/menu.html
 
-Github hosts menu data as ```tsv``` : https://raw.githubusercontent.com/simon-ameye/brume-menu/master/menu.tsv
+Google sites hosts restaurant website : accessible via https://www.brumecoffeenice.fr/
 
-menu.html formats data to HTML using JavaScript
+Google sites menu page embed Github page as Embed Website Widget 
 
 ## Data
-Data is fetched using : ```fetch()```
+Data is fetched using : ```fetch().then()```
 
 ## Processing
 JavaScript function ```process(input)``` processes table data and returns HTML format string.
