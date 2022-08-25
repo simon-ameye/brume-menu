@@ -15,7 +15,7 @@ Data is fetched using : ```fetch('https://raw.githubusercontent.com/simon-ameye/
 Function ```process(input)``` processes table data and returns HTML format string.
 English translation is eventually available for each word, and shown if ```var language = 1``` thanks to ```onclick``` event.
 
-```mermaid
+```howitworks
   graph TD;
       A-->B;
       A-->C;
