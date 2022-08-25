@@ -4,8 +4,7 @@ Here is the menu of our coffeshop.
 
 Visit us in Nice : https://goo.gl/maps/NQpQ787KMkiAHNmv6 :)
 
-## Hosting
-
+## Hosts
 * Github hosts menu data as ```tsv``` table : https://raw.githubusercontent.com/simon-ameye/brume-menu/master/menu.tsv
 * menu.html formats table data to HTML using JavaScript
 * menu.html is hosted by Github pages : https://simon-ameye.github.io/brume-menu/menu.html
@@ -22,6 +21,7 @@ English translation is eventually available for each word.
 
 ```process``` tries to parse translation if ```var language = 1``` thanks to ```onclick``` event.
 
+## Graph
 ```mermaid
 	graph TD
 		A[Github pages]
