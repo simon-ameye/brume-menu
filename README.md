@@ -8,6 +8,8 @@ Github hosts menu data as ```tsv``` : https://raw.githubusercontent.com/simon-am
 
 Google sites hosts restaurant website : https://www.brumecoffeenice.fr/
 
+Google sites menu page embeddes Github page
+
 ## Data
 Data is fetched using : ```fetch('https://raw.githubusercontent.com/simon-ameye/brume-menu/master/menu.tsv')```
 
@@ -15,9 +17,9 @@ Data is fetched using : ```fetch('https://raw.githubusercontent.com/simon-ameye/
 Function ```process(input)``` processes table data and returns HTML format string.
 English translation is eventually available for each word, and shown if ```var language = 1``` thanks to ```onclick``` event.
 
-```howitworks
+```mermaid
   graph TD;
-      A-->B;
+      Github page --> Google sites : brumecoffeenice.fr;
       A-->C;
       B-->D;
       C-->D;
