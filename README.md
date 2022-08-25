@@ -2,6 +2,8 @@
 
 Here is the menu of our coffeshop.
 
+It is hosted by Google Sites and Github for free !
+
 Visit us in Nice : https://goo.gl/maps/NQpQ787KMkiAHNmv6 :)
 
 ## Hosts
