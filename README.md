@@ -22,6 +22,6 @@ English translation is eventually available for each word.
 
 ```mermaid
 	graph TD
-		A[Github pages] -->|embedded| B[Google sites]
+		A[Github pages serving menu.html : formats data to HTML using JavaScript] -->|embedded| B[Google sites]
 		C[Github raw] -->|menu data| A
 ```
