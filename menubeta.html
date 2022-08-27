@@ -11,7 +11,7 @@
 	{
 		display: flex;
 		flex-direction: column;
-		justify-content: end;
+		justify-content: center;
 
 		text-align: center;
 		color: rgb(67, 67, 67);
@@ -20,20 +20,20 @@
 		font-size: 350%;
 		border-bottom: solid;
 		font-weight: bold;
-		line-height: 2em;
+		margin: 1em;
 	}
 	p2 /*for categorie*/
 	{
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		text-align: center;
 
+		text-align: center;
 		color: rgb(90, 90, 90);
 		font-family: 'Yeseva One', cursive;
 		font-size: 250%;
 		font-weight: bold;
-		line-height: 2em;
+		margin: 1em;
 	}
 	p3 /*for nom*/
 	{
@@ -41,12 +41,13 @@
 		flex-direction: column;
 		justify-content: center;
 
+		text-align: center;
 		color: rgb(134, 107, 69);
 		font-family: 'Amatic SC', cursive;
+		letter-spacing: 0.07em;
 		font-size: 170%;
 		font-weight: 700;
-		line-height: 2.2em;
-
+		margin: 0.4em;
 	}
 	p4 /*for prix*/
 	{
@@ -54,7 +55,8 @@
 		flex-direction: column;
 		justify-content: center;
 
-		color: rgb(115, 115, 115);
+		text-align: right;
+		color: rgb(149, 149, 149);
 		font-family: 'Bebas Neue', cursive;
 		font-size: 120%;
 		font-weight: lighter;
@@ -63,25 +65,45 @@
 	p5 /*for description*/
 	{
 		display: flex;
+		flex-direction: column;
 		justify-content: center;
-		text-align: center;
 
+		text-align: center;
 		color: rgb(14, 14, 14);
 		font-family: 'Nunito', sans-serif;
 		font-size: 110%;
 		font-weight: 200;
+		margin: 1em;
 	}
 	p6 /*for commentaire*/
 	{
 		display: flex;
-		justify-content: space-around;
+		flex-direction: column;
+		justify-content: center;
 		text-align: center;
 
 		color: rgb(50, 49, 58);
 		font-family: 'Amatic SC', sans-serif;
-		font-size: 200%;
+		letter-spacing: 0.06em;
+		font-size: 170%;
 		font-weight: 200;
+		margin: 1em;
 	}
+
+	p7 /*for language box*/
+	{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		text-align: center;
+
+		color: rgb(84, 84, 84);
+		font-family: 'Amatic SC', sans-serif;
+		letter-spacing: 0.06em;
+		font-size: 150%;
+		font-weight: 700;
+	}
+
 	conteneur1 /*contener for name and price*/
 	{
 		display:flex;
@@ -182,11 +204,11 @@
 <conteneur3>
 	<conteneur2>
 		<img src="https://simon-ameye.github.io/brume-menu/fr.svg" width="60" height=auto onclick="language=0;cb()"></img>
-		<p6 onclick="language=0;cb()">FR</p6>
+		<p7 onclick="language=0;cb()">FR</p7>
 	</conteneur2>
 	<conteneur2>
 		<img src="https://simon-ameye.github.io/brume-menu/en.svg" width="60" height=auto onclick="language=1;cb()"></img>
-		<p6 onclick="language=1;cb()">EN</p6>
+		<p7 onclick="language=1;cb()">EN</p7>
 	</conteneur2>
 </conteneur3>
 
