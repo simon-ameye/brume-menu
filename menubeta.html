@@ -7,13 +7,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Bebas+Neue&family=Nunito:wght@200;400&family=Yeseva+One&display=swap" rel="stylesheet">
 
 <style>
-	p1, p2, p3, p4, p5
+	p1 /*for menu*/
 	{
 		display: flex;
 		justify-content: space-around;
-	}
-	p1 /*for menu*/
-	{
+
 		color: rgb(67, 67, 67);
 		font-family: 'Yeseva One', cursive;
 		font-style: italic;
@@ -23,6 +21,9 @@
 	}
 	p2 /*for categorie*/
 	{
+		display: flex;
+		justify-content: space-around;
+
 		color: rgb(90, 90, 90);
 		font-family: 'Yeseva One', cursive;
 		font-size: 250%;
@@ -30,6 +31,9 @@
 	}
 	p3 /*for nom*/
 	{
+		display: flex;
+		justify-content: space-around;
+
 		color: rgb(134, 107, 69);
 		font-family: 'Amatic SC', cursive;
 		font-size: 170%;
@@ -37,34 +41,51 @@
 	}
 	p4 /*for prix*/
 	{
+		display: flex;
+		justify-content: space-around;
+
 		color: rgb(48, 48, 48);
 		font-family: 'Amatic SC', cursive;
 		font-size: 170%;
 		font-weight: 400;
 	}
-	p5 /*for commentaire*/
+	p5 /*for description*/
 	{
+		display: flex;
+		justify-content: left;
+
+		display: flex;
 		color: rgb(14, 14, 14);
 		font-family: 'Nunito', sans-serif;
 		font-size: 110%;
 		font-weight: 200;
-		justify-content: flex-start;
 	}
-	p6 /*for menu*/
+	p6 /*for commentaire*/
 	{
+		display: flex;
+		justify-content: space-around;
+
 		color: rgb(50, 49, 58);
 		font-family: 'Amatic SC', sans-serif;
 		font-size: 200%;
 		font-weight: 200;
 	}
-	body
-	{
-		text-align:center;
-	}
-	conteneur
+	conteneur1 /*contener for name and price*/
 	{
 		display:flex;
 		justify-content: space-between;
+	}
+
+	conteneur2 /*contener for languages column*/
+	{
+		display:flex;
+		flex-direction: column;
+	}
+	conteneur3 /*contener for languages rows*/
+	{
+		display:flex;
+		flex-direction: row;
+		justify-content: center;
 	}
 
 
@@ -109,10 +130,10 @@
 							res += "<p2>" + word + "</p2>";
 							break;
 						case "nom":
-							res += "<conteneur><p3>" + word + "</p3>";
+							res += "<conteneur1><p3>" + word + "</p3>";
 							break;
 						case "prix":
-							res += "<p4>" + word + "</p4></conteneur>";
+							res += "<p4>" + word + "</p4></conteneur1>";
 							break;
 						case "description":
 							res += "<p5>" + word + "</p5>";
@@ -143,22 +164,19 @@
 
 </script>
 <body>
-	<table style="width:100%; table-layout: fixed">
-		<tr>
-		<td></td>
-		<td><img src="https://simon-ameye.github.io/brume-menu/fr.svg" width="60" height=auto onclick="language=0;cb()"></img></td>
-		<td><img src="https://simon-ameye.github.io/brume-menu/en.svg" width="60" height=auto onclick="language=1;cb()"></img></td>
-		<td></td>
-	</tr>
-	<tr>
-		<td></td>
-		<td><p6>FR</p6></td>
-		<td><p6>EN</p6></td>
-		<td></td>
-	</tr>
-	</table>
 
-	<div id="content"></div>
-	<script>cb();</script>
+<conteneur3>
+	<conteneur2>
+		<img src="https://simon-ameye.github.io/brume-menu/fr.svg" width="60" height=auto onclick="language=0;cb()"></img>
+		<p6 onclick="language=0;cb()">FR</p6>
+	</conteneur2>
+	<conteneur2>
+		<img src="https://simon-ameye.github.io/brume-menu/en.svg" width="60" height=auto onclick="language=1;cb()"></img>
+		<p6 onclick="language=1;cb()">EN</p6>
+	</conteneur2>
+</conteneur3>
+
+<div id="content"></div>
+<script>cb();</script>
 </body>
 </html>
