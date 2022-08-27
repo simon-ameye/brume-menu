@@ -7,52 +7,121 @@
 <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Bebas+Neue&family=Nunito:wght@200;400&family=Yeseva+One&display=swap" rel="stylesheet">
 
 <style>
-	h1
+	p1 /*for menu*/
 	{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		text-align: center;
 		color: rgb(67, 67, 67);
 		font-family: 'Yeseva One', cursive;
 		font-style: italic;
 		font-size: 350%;
-		text-align: center;
 		border-bottom: solid;
+		font-weight: bolder;
+		margin: 1em;
 	}
-	h2
+	p2 /*for categorie*/
 	{
-		color: rgb(90, 90, 90);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		text-align: center;
+		color: rgb(97, 97, 97);
 		font-family: 'Yeseva One', cursive;
 		font-size: 250%;
-		text-align: center;
+		font-weight: bolder;
+		margin: 1em;
 	}
-	h3
+	p3 /*for nom*/
 	{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		text-align: center;
 		color: rgb(134, 107, 69);
 		font-family: 'Amatic SC', cursive;
-		font-size: 170%;
-		font-weight: 700;
+		letter-spacing: 0.07em;
+		font-size: 180%;
+		font-weight: bolder;
+		margin: 0.4em;
 	}
-	h5
+	p4 /*for prix*/
 	{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		text-align: right;
+		color: rgb(149, 149, 149);
+		font-family: 'Bebas Neue', cursive;
+		font-size: 130%;
+		font-weight: lighter;
+
+	}
+	p5 /*for description*/
+	{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		text-align: center;
 		color: rgb(14, 14, 14);
 		font-family: 'Nunito', sans-serif;
-		font-size: 110%;
-		text-align: center;
-		font-weight: 200;
+		font-size: 120%;
+		font-weight: lighter;
+		margin: 1em;
 	}
-	h6
+	p6 /*for commentaire*/
 	{
-		color: rgb(50, 49, 58);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		text-align: center;
+
+		color: rgb(106, 106, 106);
 		font-family: 'Amatic SC', sans-serif;
-		font-size: 200%;
+		letter-spacing: 0.06em;
+		font-size: 170%;
+		font-weight: bolder;
+		margin: 1em;
+	}
+
+	p7 /*for language box*/
+	{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 		text-align: center;
-		font-weight: 200;
+
+		color: rgb(84, 84, 84);
+		font-family: 'Amatic SC', sans-serif;
+		letter-spacing: 0.06em;
+		font-size: 150%;
+		font-weight: bolder;
 	}
-	.row
+
+	conteneur1 /*contener for name and price*/
 	{
-		display:inline-block;
+		display:flex;
+		flex-direction: row;
+		justify-content: space-between;
 	}
-	body
+
+	conteneur2 /*contener for languages column*/
 	{
-		text-align:center;
+		display:flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	conteneur3 /*contener for languages rows*/
+	{
+		display:flex;
+		flex-direction: row;
+		justify-content: center;
 	}
 
 </style>
@@ -62,6 +131,7 @@
 	function process(input)
 	{
 		var lines = input.split('\n');
+		var header = lines[0].split('	'); //header is the first row
 		var res;
 		var words;
 		var i;
@@ -72,34 +142,39 @@
 		for (i = 1; i < lines.length; i++)
 		{
 			words = lines[i].split('	');
-			for (j = 0; j <= 5; j++)
+			for (j = 0; j <= words.length; j+=2)
 			{
-				word = words[j * 2];
+				word = words[j];
 				if (word)
 				{
-					if (language==1 && words[j * 2 + 1])
+					//select the translation (if any) which is right after current word
+					if (language==1 && words[j + 1])
 					{
-						word = words[j * 2 + 1];
+						word = words[j + 1];
 					}
-					switch (j)
+
+					//select word style according to title
+					//title is deduced from header string
+					//unknown title will get default style
+					switch (header[j])
 					{
-						case 0:
-							res += "<h1>" + word + "</h1>";
+						case "menu":
+							res += "<p1>" + word + "</p1>";
 							break;
-						case 1:
-							res += "<h2>" + word + "</h2>";
+						case "categorie":
+							res += "<p2>" + word + "</p2>";
 							break;
-						case 2:
-							res += "<h3>" + word ;
+						case "nom":
+							res += "<conteneur1><p3></p3><p3>" + word + "</p3>";
 							break;
-						case 3:
-							res += "<FONT style=\"color: rgb(40, 40, 40); font-weight: 400;\">" + " - " + word + "</FONT>" + "</h3>";
+						case "prix":
+							res += "<p4>" + word + "</p4></conteneur1>";
 							break;
-						case 4:
-							res += "<h5>" + word + "</h5>";
+						case "description":
+							res += "<p5>" + word + "</p5>";
 							break;
-						case 5:
-							res += "<h6>" + word + "</h6>";
+						case "commentaire":
+							res += "<p6>" + word + "</p6>";
 							break;
 						default:
 							res += "<p>" + word + "</p>";
@@ -123,8 +198,21 @@
 	}
 
 </script>
-<img src="https://simon-ameye.github.io/brume-menu/fr.svg" width="60" height=auto onclick="language=0;cb()"></img>
-<img src="https://simon-ameye.github.io/brume-menu/en.svg" width="60" height=auto onclick="language=1;cb()"></img>
+<body>
+
+<conteneur3>
+	<conteneur2>
+		<img src="https://simon-ameye.github.io/brume-menu/fr.svg" width="60" height=auto onclick="language=0;cb()"></img>
+		<p7 onclick="language=0;cb()">FR</p7>
+	</conteneur2>
+	<conteneur2>
+		<img src="https://simon-ameye.github.io/brume-menu/en.svg" width="60" height=auto onclick="language=1;cb()"></img>
+		<p7 onclick="language=1;cb()">EN</p7>
+	</conteneur2>
+</conteneur3>
+
 <div id="content"></div>
 <script>cb();</script>
+
+</body>
 </html>
