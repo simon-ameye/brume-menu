@@ -46,12 +46,13 @@
 		justify-content: center;
 
 		text-align: center;
-		color: rgb(134, 107, 69);
+		color: rgb(143, 124, 98);
 		font-family: 'Amatic SC', cursive;
 		letter-spacing: 0.07em;
 		font-size: 180%;
 		font-weight: bolder;
-		margin: 0.4em;
+		margin-bottom: 0.4em;
+		margin-top: 0.4em;
 	}
 
 	p4 /*for prix*/
@@ -63,9 +64,10 @@
 		text-align: right;
 		color: rgb(149, 149, 149);
 		font-family: 'Bebas Neue', cursive;
-		font-size: 130%;
+		font-size: 140%;
 		font-weight: lighter;
-
+		flex-grow: 1;
+		flex-basis: 0;
 	}
 
 	p5 /*for description*/
@@ -79,7 +81,8 @@
 		font-family: 'Nunito', sans-serif;
 		font-size: 120%;
 		font-weight: lighter;
-		margin: 1em;
+		margin-bottom: 1em;
+		margin-top: 1em;
 	}
 
 	p6 /*for commentaire*/
@@ -94,7 +97,8 @@
 		letter-spacing: 0.06em;
 		font-size: 170%;
 		font-weight: bolder;
-		margin: 1em;
+		margin-bottom: 1em;
+		margin-top: 1em;
 	}
 
 	p7 /*for language box*/
@@ -172,10 +176,10 @@
 							res += "<p2>" + word + "</p2>";
 							break;
 						case "nom":
-							res += "<conteneur1><p3></p3><p3>" + word + "</p3>"; //A name MUST be followed by a price
+							res += "<conteneur1><p4></p4><p3>" + word + "</p3>"; //A name MUST be followed by a price
 							break;
 						case "prix":
-							res += "<p4>" + word + "</p4></conteneur1>"; //A name MUST be followed by a price
+							res += "<p4>" + parseFloat(word) + "</p4></conteneur1>"; //A name MUST be followed by a price
 							break;
 						case "description":
 							res += "<p5>" + word + "</p5>";

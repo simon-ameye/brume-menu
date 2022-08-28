@@ -46,7 +46,7 @@
 		justify-content: center;
 
 		text-align: center;
-		color: rgb(134, 107, 69);
+		color: rgb(143, 124, 98);
 		font-family: 'Amatic SC', cursive;
 		letter-spacing: 0.07em;
 		font-size: 180%;
@@ -66,7 +66,8 @@
 		font-family: 'Bebas Neue', cursive;
 		font-size: 140%;
 		font-weight: lighter;
-
+		flex-grow: 1;
+		flex-basis: 0;
 	}
 
 	p5 /*for description*/
@@ -175,7 +176,7 @@
 							res += "<p2>" + word + "</p2>";
 							break;
 						case "nom":
-							res += "<conteneur1><p3></p3><p3>" + word + "</p3>"; //A name MUST be followed by a price
+							res += "<conteneur1><p4></p4><p3>" + word + "</p3>"; //A name MUST be followed by a price
 							break;
 						case "prix":
 							res += "<p4>" + parseFloat(word) + "</p4></conteneur1>"; //A name MUST be followed by a price
