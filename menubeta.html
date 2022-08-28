@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<title></title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Bebas+Neue&family=Nunito:wght@200;400&family=Yeseva+One&display=swap" rel="stylesheet">
+
+<style>
+	p1 /*for menu*/
+	{
+		display: flex;
+		flex-direction: column;
+		justify-content:center;
+
+		text-align: center;
+		color: rgb(67, 67, 67);
+		font-family: 'Yeseva One', cursive;
+		font-style: italic;
+		font-size: 350%;
+		border-bottom: solid;
+		font-weight: bolder;
+		margin-bottom: 1em;
+		margin-top: 1em;
+	}
+
+	p2 /*for categorie*/
+	{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		text-align: center;
+		color: rgb(97, 97, 97);
+		font-family: 'Yeseva One', cursive;
+		font-size: 250%;
+		font-weight: bolder;
+		margin-bottom: 1em;
+		margin-top: 1em;
+	}
+
+	p3 /*for nom*/
+	{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		text-align: center;
+		color: rgb(143, 124, 98);
+		font-family: 'Amatic SC', cursive;
+		letter-spacing: 0.07em;
+		font-size: 180%;
+		font-weight: bolder;
+		margin-bottom: 0.4em;
+		margin-top: 0.4em;
+	}
+
+	p4 /*for prix*/
+	{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		text-align: right;
+		color: rgb(149, 149, 149);
+		font-family: 'Bebas Neue', cursive;
+		font-size: 140%;
+		font-weight: lighter;
+		flex-grow: 1;
+		flex-basis: 0;
+	}
+
+	p5 /*for description*/
+	{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		text-align: center;
+		color: rgb(14, 14, 14);
+		font-family: 'Nunito', sans-serif;
+		font-size: 120%;
+		font-weight: lighter;
+		margin-bottom: 1em;
+		margin-top: 1em;
+	}
+
+	p6 /*for commentaire*/
+	{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		text-align: center;
+
+		color: rgb(106, 106, 106);
+		font-family: 'Amatic SC', sans-serif;
+		letter-spacing: 0.06em;
+		font-size: 170%;
+		font-weight: bolder;
+		margin-bottom: 1em;
+		margin-top: 1em;
+	}
+
+	p7 /*for language box*/
+	{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		text-align: center;
+
+		color: rgb(84, 84, 84);
+		font-family: 'Amatic SC', sans-serif;
+		letter-spacing: 0.06em;
+		font-size: 150%;
+		font-weight: bolder;
+	}
+
+	conteneur1 /*contener for name and price*/
+	{
+		display:flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	conteneur2 /*contener for languages column*/
+	{
+		display:flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	conteneur3 /*contener for languages rows*/
+	{
+		display:flex;
+		flex-direction: row;
+		justify-content: center;
+	}
+
+</style>
+<script>
+	var language = 0;
+	var actualMenuRow = 0;
+
+	function process(input)
+	{
+		var lines = input.split('\n');
+		var header = lines[0].split('	'); //header is the first row
+		var res;
+		var words;
+		var i;
+		var j;
+		var word;
+
+		res = ""
+		for (i = 1; i < lines.length; i++)
+		{
+			words = lines[i].split('	');
+			for (j = 0; j <= words.length; j+=2)
+			{
+				word = words[j];
+				if (word)
+				{
+					//select the translation (if any) which is right after current word
+					if (language==1 && words[j + 1])
+					{
+						word = words[j + 1];
+					}
+
+					//select word style according to title
+					//title is deduced from header string
+					//unknown title will get default style
+					switch (header[j])
+					{
+						case "menu":
+							if (i > actualMenuRow)
+								actualMenuRow = 0;
+							res += "<p1 onclick=\"actualMenuRow=" + i + ";cb()\">" + word + "</p1>"; //set the row of the actual menu to show
+							break;
+						case "categorie":
+							if (i > actualMenuRow && actualMenuRow != 0)
+								res += "<p2>" + word + "</p2>";
+							break;
+						case "nom":
+							if (i > actualMenuRow && actualMenuRow != 0)
+								res += "<conteneur1><p4></p4><p3>" + word + "</p3>"; //A name MUST be followed by a price
+							break;
+						case "prix":
+							if (i > actualMenuRow && actualMenuRow != 0)
+								res += "<p4>" + parseFloat(word) + "</p4></conteneur1>"; //A name MUST be followed by a price
+							break;
+						case "description":
+							if (i > actualMenuRow && actualMenuRow != 0)
+								res += "<p5>" + word + "</p5>";
+							break;
+						case "commentaire":
+							if (i > actualMenuRow && actualMenuRow != 0)
+								res += "<p6>" + word + "</p6>";
+							break;
+						default:
+							res += "<p>" + word + "</p>";
+					}
+				}
+			}
+		}
+		console.log(res);
+		return res;
+	}
+
+	function cb()
+	{
+		
+		fetch('https://raw.githubusercontent.com/simon-ameye/brume-menu/master/menubeta.tsv')
+		.then(response => response.text())
+		.then(data =>
+		{
+			document.getElementById('content').innerHTML=process(data);
+		});
+	}
+
+</script>
+<body>
+
+<conteneur3>
+	<conteneur2>
+		<img src="https://simon-ameye.github.io/brume-menu/fr.svg" width="60" height=auto onclick="language=0;cb()"></img>
+		<p7 onclick="language=0;cb()">FR</p7>
+	</conteneur2>
+	<conteneur2>
+		<img src="https://simon-ameye.github.io/brume-menu/en.svg" width="60" height=auto onclick="language=1;cb()"></img>
+		<p7 onclick="language=1;cb()">EN</p7>
+	</conteneur2>
+</conteneur3>
+
+<div id="content"></div>
+<script>cb();</script>
+<p7><br></p7>
+</body>
+</html>
