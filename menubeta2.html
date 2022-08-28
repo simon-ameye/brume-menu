@@ -60,14 +60,14 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		flex-grow: 1;
+		flex-basis: 0;
 
 		text-align: right;
 		color: rgb(149, 149, 149);
 		font-family: 'Bebas Neue', cursive;
 		font-size: 140%;
 		font-weight: lighter;
-		flex-grow: 1;
-		flex-basis: 0;
 	}
 
 	p5 /*for description*/
@@ -85,7 +85,7 @@
 		margin-top: 1em;
 	}
 
-	p6 /*for commentaire or information*/
+	p6 /*for commentaire*/
 	{
 		display: flex;
 		flex-direction: column;
@@ -128,18 +128,33 @@
 		flex-direction: column;
 		justify-content: space-between;
 	}
-
 	conteneur3 /*contener for languages rows*/
 	{
 		display:flex;
 		flex-direction: row;
 		justify-content: center;
 	}
+	conteneur4 /*contener for single menu*/
+	{
+		display:flex;
+		flex-direction: column;
+		justify-content: center;
+		border: solid;
+		flex-grow: 1;
+		flex-basis: 0;
+	}
+	conteneur5 /*contener for single menu*/
+	{
+		display:flex;
+		flex-direction: row;
+		justify-content: center;
+		border: solid;
+		flex-wrap: wrap;
+	}
 
 </style>
 <script>
 	var language = 0;
-	var actualMenuRow = 0;
 
 	function process(input)
 	{
@@ -150,6 +165,7 @@
 		var i;
 		var j;
 		var word;
+		var menuSpoted = 0;
 
 		res = ""
 		for (i = 1; i < lines.length; i++)
@@ -172,32 +188,28 @@
 					switch (header[j])
 					{
 						case "menu":
-							if (i > actualMenuRow)
-								actualMenuRow = 0;
-							res += "<p1 onclick=\"actualMenuRow=" + i + ";cb()\">" + word + "</p1>"; //set the row of the actual menu to show
+							if (!menuSpoted)
+								res += "<conteneur5>"
+							if (menuSpoted)
+								res += "</conteneur4>";
+							menuSpoted = 1;
+							res += "<conteneur4>";
+							res += "<p1>" + word + "</p1>";
 							break;
 						case "categorie":
-							if (i > actualMenuRow && actualMenuRow != 0)
-								res += "<p2>" + word + "</p2>";
+							res += "<p2>" + word + "</p2>";
 							break;
 						case "nom":
-							if (i > actualMenuRow && actualMenuRow != 0)
-								res += "<conteneur1><p4></p4><p3>" + word + "</p3>"; //A name MUST be followed by a price
+							res += "<conteneur1><p4></p4><p3>" + word + "</p3>"; //A name MUST be followed by a price
 							break;
 						case "prix":
-							if (i > actualMenuRow && actualMenuRow != 0)
-								res += "<p4>" + parseFloat(word) + "</p4></conteneur1>"; //A name MUST be followed by a price
+							res += "<p4>" + parseFloat(word) + "</p4></conteneur1>"; //A name MUST be followed by a price
 							break;
 						case "description":
-							if (i > actualMenuRow && actualMenuRow != 0)
-								res += "<p5>" + word + "</p5>";
+							res += "<p5>" + word + "</p5>";
 							break;
 						case "commentaire":
-							if (i > actualMenuRow && actualMenuRow != 0)
-								res += "<p6>" + word + "</p6>";
-							break;
-						case "information":
-							res += "<p6>" + word + "</p6>"; //information is shown in any case
+							res += "<p6>" + word + "</p6>";
 							break;
 						default:
 							res += "<p>" + word + "</p>";
@@ -205,6 +217,8 @@
 				}
 			}
 		}
+		res += "</conteneur4>";
+		res += "</conteneur5>";
 		console.log(res);
 		return res;
 	}
@@ -212,7 +226,7 @@
 	function cb()
 	{
 		
-		fetch('https://raw.githubusercontent.com/simon-ameye/brume-menu/master/menubeta.tsv')
+		fetch('https://raw.githubusercontent.com/simon-ameye/brume-menu/master/menu.tsv')
 		.then(response => response.text())
 		.then(data =>
 		{
@@ -226,11 +240,11 @@
 <conteneur3>
 	<conteneur2>
 		<img src="https://simon-ameye.github.io/brume-menu/fr.svg" width="60" height=auto onclick="language=0;cb()"></img>
-		<p7 onclick="language=0;actualMenuRow=0;cb()">FR</p7>
+		<p7 onclick="language=0;cb()">FR</p7>
 	</conteneur2>
 	<conteneur2>
 		<img src="https://simon-ameye.github.io/brume-menu/en.svg" width="60" height=auto onclick="language=1;cb()"></img>
-		<p7 onclick="language=1;actualMenuRow=0;cb()">EN</p7>
+		<p7 onclick="language=1;cb()">EN</p7>
 	</conteneur2>
 </conteneur3>
 
