@@ -85,7 +85,7 @@
 		margin-top: 1em;
 	}
 
-	p6 /*for commentaire*/
+	p6 /*for commentaire or information*/
 	{
 		display: flex;
 		flex-direction: column;
@@ -195,6 +195,9 @@
 						case "commentaire":
 							if (i > actualMenuRow && actualMenuRow != 0)
 								res += "<p6>" + word + "</p6>";
+							break;
+						case "information":
+							res += "<p6>" + word + "</p6>"; //information is shown in any case
 							break;
 						default:
 							res += "<p>" + word + "</p>";
