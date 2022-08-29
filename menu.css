@@ -140,7 +140,7 @@ conteneur4 /*contener for single menu*/
 	flex-grow: 1;
 	flex-basis: 0;
 }
-conteneur5 /*contener for single menu*/
+conteneur5 /*contener for all menus*/
 {
 	display:flex;
 	flex-direction: column;
@@ -148,7 +148,7 @@ conteneur5 /*contener for single menu*/
 	flex-wrap: wrap;
 }
 
-conteneur6 /*contener for languages rows*/
+conteneur6 /*contener for print prompt*/
 {
 	display:flex;
 	flex-direction: row;
