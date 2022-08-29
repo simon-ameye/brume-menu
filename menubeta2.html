@@ -87,23 +87,10 @@
 	}
 
 
-
-
-
-
-
-
-
-
-
-
-
-	function printDiv() {
-            var divContents = document.getElementsByTagName("conteneur4")[0].innerHTML;
+	function printDiv(tagName, page) {
+            var divContents = document.getElementsByTagName(tagName)[page].innerHTML;
             var a = window.open('', '', 'height=500, width=500');
 			a.document.write('<link rel="stylesheet" href="menubeta2.css">');
-
-
             a.document.write('<html><body>');
             a.document.write(divContents);
             a.document.write('</body></html>');
@@ -111,26 +98,8 @@
             //a.print();
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </script>
 <body>
-<p7 onclick="printDiv()">Print</p7>
 <conteneur3>
 	<conteneur2>
 		<img src="https://simon-ameye.github.io/brume-menu/fr.svg" width="60" height=auto onclick="language=0;cb()"></img>
@@ -145,6 +114,11 @@
 <div id="content"></div>
 <script>cb();</script>
 <p7><br></p7>
-
+<conteneur6>
+	<p7>Print page </p7>
+	<p7 onclick="printDiv('conteneur4', 0)">1</p7>
+	<p7 onclick="printDiv('conteneur4', 1)">2</p7>
+	<p7 onclick="printDiv('conteneur5', 0)">whole page</p7>
+</conteneur6>
 </body>
 </html>

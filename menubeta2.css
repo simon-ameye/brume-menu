@@ -124,12 +124,14 @@ conteneur2 /*contener for languages column*/
 	flex-direction: column;
 	justify-content: space-between;
 }
+
 conteneur3 /*contener for languages rows*/
 {
 	display:flex;
 	flex-direction: row;
 	justify-content: center;
 }
+
 conteneur4 /*contener for single menu*/
 {
 	display:flex;
@@ -142,8 +144,15 @@ conteneur4 /*contener for single menu*/
 conteneur5 /*contener for single menu*/
 {
 	display:flex;
-	flex-direction: column;
+	flex-direction: row;
 	justify-content: center;
 	border: solid;
 	flex-wrap: wrap;
+}
+
+conteneur6 /*contener for languages rows*/
+{
+	display:flex;
+	flex-direction: row;
+	justify-content:space-between;
 }
