@@ -40,11 +40,12 @@
 					switch (header[j])
 					{
 						case "menu":
-							if (!menuSpoted)
+							if (!menuSpoted) //add conteneur 5 and 4 boxes in the right location
 								res += "<conteneur5>"
 							if (menuSpoted)
 								res += "</conteneur4>";
 							menuSpoted = 1;
+
 							res += "<conteneur4>";
 							res += "<p1>" + word + "</p1>";
 							break;
@@ -86,19 +87,20 @@
 		});
 	}
 
-
-	function printDiv(tagName, page) {
-            var divContents = document.getElementsByTagName(tagName)[page].innerHTML;
-            var a = window.open('', '', 'height=500, width=500');
-			a.document.write('<link rel="stylesheet" href="menubeta2.css">');
-            a.document.write('<html><body>');
-            a.document.write(divContents);
-            a.document.write('</body></html>');
-            //a.document.close();
-            //a.print();
-        }
+	function printDiv(tagName, page) //rint a div
+	{
+		var divContents = document.getElementsByTagName(tagName)[page].innerHTML;
+		var a = window.open('', '', 'height=500, width=500');
+		a.document.write('<link rel="stylesheet" href="menubeta2.css">');
+		a.document.write('<html><body>');
+		a.document.write(divContents);
+		a.document.write('</body></html>');
+		//a.document.close();
+		//a.print();
+	}
 
 </script>
+
 <body>
 <conteneur3>
 	<conteneur2>
@@ -120,5 +122,6 @@
 	<p7 onclick="printDiv('conteneur4', 1)">2</p7>
 	<p7 onclick="printDiv('conteneur5', 0)">whole page</p7>
 </conteneur6>
+
 </body>
 </html>
