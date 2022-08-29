@@ -87,7 +87,7 @@
 		});
 	}
 
-	function printDiv(tagName, page) //rint a div
+	function printDiv(tagName, page) //print a div
 	{
 		var divContents = document.getElementsByTagName(tagName)[page].innerHTML;
 		var a = window.open('', '', 'height=500, width=500');
@@ -95,8 +95,8 @@
 		a.document.write('<html><body>');
 		a.document.write(divContents);
 		a.document.write('</body></html>');
-		//a.document.close();
-		//a.print();
+		a.document.close();
+		a.print();
 	}
 
 </script>
