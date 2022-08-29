@@ -95,8 +95,13 @@
 		a.document.write('<html><body>');
 		a.document.write(divContents);
 		a.document.write('</body></html>');
-		a.document.close();
-		a.print();
+		
+		setTimeout(function() //Degueulasse, please find a betterway to wait until page loaded befo
+		{
+			a.print();
+			a.close();
+		}, 1000);
+		
 	}
 
 </script>
