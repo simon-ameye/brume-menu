@@ -1,6 +1,6 @@
 /*@import url("https://fonts.googleapis.com");*/
 /*@import url("https://fonts.gstatic.com");*/
-@import url("https://fonts.googleapis.com/css2?family=Amatic+SC&family=Bebas+Neue&family=Nunito:wght@200;400&family=Yeseva+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC&family=Lobster+Two&family=Bebas+Neue&family=Cormorant+Garamond:wght@500&family=Nunito:wght@200;400&family=Yeseva+One&display=swap");
 
 p1 /*for menu*/
 {
@@ -84,12 +84,13 @@ p6 /*for commentaire*/
 	flex-direction: column;
 	justify-content: center;
 	text-align: center;
+	color: rgb(142, 142, 142);
+	font-style: italic;
 
-	color: rgb(106, 106, 106);
-	font-family: 'Amatic SC', sans-serif;
+	font-family: 'Lobster Two', sans-serif;
 	letter-spacing: 0.06em;
-	font-size: 170%;
-	font-weight: bolder;
+	font-size: 140%;
+	font-weight: normal;
 	margin-bottom: 1em;
 	margin-top: 1em;
 }
@@ -158,13 +159,13 @@ button
 	align-items: center;
 	flex-grow: 1;
 	flex-basis: 0;
-	color: rgb(143, 124, 98);
+	color: rgb(72, 72, 72);
 	border-bottom: solid;
-	font-family: 'Amatic SC', cursive;
+	font-family: 'Cormorant Garamond', cursive;
 	font-size: 200%;
-	font-weight: bolder;
+	font-weight: normal;
 	margin-bottom: 1em;
-	margin-top: 1em;	
+	margin-top: 1em;
 }
 
 button:hover
