@@ -152,7 +152,7 @@ button
 	border: none;
 	outline: none;
 	cursor: pointer;
-	transition: 0.3s;
+	transition: 2s;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
