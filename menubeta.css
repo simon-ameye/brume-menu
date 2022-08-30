@@ -150,6 +150,52 @@ conteneur6 /*contener for print prompt*/
 
 
 
+/* Style the tab */
+.tab {
+	overflow: hidden;
+  }
+  
+  /* Style the buttons inside the tab */
+  .tab button {
+	background-color: inherit;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+
+	display: flex;
+	flex-direction: row;
+	justify-content:center;
+	flex-grow: 1;
+	flex-basis: 0;
+
+	color: rgb(67, 67, 67);
+	font-family: 'Amatic SC', cursive;
+	font-size: 200%;
+	font-weight: bolder;
+	margin-bottom: 1em;
+	margin-top: 1em;	
+	text-align: center;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+	background-color: #ddd;
+  }
+  
+  /* Create an active/current tablink class */
+  .tab button.active {
+	background-color: #ccc;
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+	display: none;
+	padding: 6px 12px;
+	border-top: none;
+  }
 
 
 

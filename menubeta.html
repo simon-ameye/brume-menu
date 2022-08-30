@@ -7,7 +7,8 @@
 
 <script>
 	var language = 0;
-	var nbmenus = 0;
+	var menuNames = [];
+	var actualMenu = 0;
 
 	//returns formatted HTML of only one bloc
 	function processBloc(bloc, header)
@@ -67,42 +68,29 @@
 		return (res);
 	}
 
+	function processBlocs(blocs, header)
+	{
+		var res = "";
+
+		var i;
+		for (i = 0; i < blocs.length; i++)
+		{
+			console.log(i);
+			res += "<conteneurMenu>" + processBloc(blocs[i], header) + "</conteneurMenu>";
+		}
+		return (res);
+	}
+
 	//shows the print menu
 	//one onclick button per menu
-	function showPrintMenus(n)
+	function showPrintMenus(menuNames)
 	{
 		var res = "";
 
 		var i;
 		res += "<conteneur6>";
-		res += "<p7>Print menu </p7>";
-		for (i = 0; i < n; i++)
-		{
-			res += "<p7 onclick=\"printDiv('conteneurMenu', " + i + ")\"> " + i + "</p7>";
-		}
+		res += "<p7 onclick=\"printMenu()\">Imprimer</p7>";
 		res += "</conteneur6>";
-		return res;
-	}
-
-	//parses table and returns formatted HTML
-	function processTable(input)
-	{
-		var res = "";
-		var header = input.split('\n')[0].split('\t'); //header is the first row
-		var corpus = input.split('\n').slice(1).join('\n'); //corpus is the rest
-		var blocs = corpus.split(/\n(?=[^\t])/); //each new row starting with (not a tab) is the begining of a new bloc
-		var intro = blocs[0]; //first bloc is the intro
-		var menus = blocs.slice(1); //other blocs are menus
-		
-		nbmenus = menus.length;
-		res += processBloc(intro, header);
-		var i;
-		for (i = 0; i < nbmenus; i++)
-		{
-			console.log(i);
-			res += "<conteneurMenu>" + processBloc(menus[i], header) + "</conteneurMenu>";
-		}
-
 		console.log(res);
 		return res;
 	}
@@ -120,9 +108,9 @@
 	}
 
 	//creates a new window with only the content of a dif to allow user to print it
-	function printDiv(tagName, page) //print a div
+	function printMenu() //print a div
 	{
-		var divContents = document.getElementsByTagName(tagName)[page].innerHTML;
+		var divContents = document.getElementsByTagName('conteneurMenu')[0].innerHTML;
 		var a = window.open('', '', 'height=500, width=500');
 		a.document.write('<link rel="stylesheet" href="menubeta.css">');
 		a.document.write('<html><body>');
@@ -136,13 +124,58 @@
 		
 	}
 
-	//returns formated table as HTML and also some other stuff
-	function showPage(data)
+	function showTabs(menuNames)
 	{
 		var res = "";
 
-		res += processTable(data);
-		res += showPrintMenus(nbmenus);
+		res += "<div class=\"tab\">";
+		res += "<conteneur6>";
+		for (i = 0; i < menuNames.length; i++)
+		{
+			res += "<button class=\"tablinks\" onclick=\"actualMenu= " + i + ";fetchFunction()\">" + menuNames[i] + "</button>"
+		}
+		res += "</conteneur6>";
+		res += "</div>";
+		return (res);
+	}
+
+	function getMenuNames(menus)
+	{
+		res = [];
+		var words;
+
+		for (i = 0; i < menus.length; i++)
+		{
+			words = menus[i].split('\t');
+			if (language == 1 && words[1])
+				res.push(words[1]);
+			else
+				res.push(words[0]);
+		}
+		return (res);
+	}
+
+	//returns formated table as HTML and also some other stuff
+	function showPage(input)
+	{
+		var res = "";
+		var header = input.split('\n')[0].split('\t'); //header is the first row
+		var corpus = input.split('\n').slice(1).join('\n'); //corpus is the rest
+		var blocs = corpus.split(/\n(?=[^\t])/); //each new row starting with (not a tab) is the begining of a new bloc
+		var intro = blocs[0]; //first bloc is the intro
+		var menus = blocs.slice(1); //other blocs are menus
+		var nbmenus = menus.length;
+		var menuNames = getMenuNames(menus);
+
+		res += processBloc(intro, header);
+		res += showTabs(menuNames);
+		res += "<conteneurMenu>";
+		res += processBloc(menus[actualMenu], header);
+		res += "</conteneurMenu>";
+		res += showTabs(menuNames);
+		res += showPrintMenus(menuNames);
+
+		//console.log(res);
 		return (res);
 	}
 </script>
@@ -163,19 +196,6 @@
 <script>fetchFunction();</script>
 
 </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 </html>
