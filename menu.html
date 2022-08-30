@@ -6,9 +6,51 @@
 <link rel="stylesheet" href="menu.css">
 
 <script>
-	var language = 0;
-	var menuNames = [];
+	var actualLanguage = 0;
 	var actualMenu = 0;
+
+	//shows the print menu
+	//one onclick button per menu
+	function showPrintMenus(menuNames)
+	{
+		var res = "";
+
+		var i;
+		res += "<conteneur6>";
+		res += "<p7 onclick=\"printMenu()\">Imprimer</p7>";
+		res += "</conteneur6>";
+		console.log(res);
+		return res;
+	}
+
+	//creates a new window with only the content of a dif to allow user to print it
+	function printMenu() //print a div
+	{
+		var divContents = document.getElementsByTagName('conteneurMenu')[0].innerHTML;
+		var a = window.open('', '', 'height=500, width=500');
+		a.document.write('<link rel="stylesheet" href="menu.css">');
+		a.document.write('<html><body>');
+		a.document.write(divContents);
+		a.document.write('</body></html>');
+
+		setTimeout(function() //Degueulasse, please find a better way to wait until page loaded before print
+		{
+			a.print();
+		}, 1000);
+	}
+
+	function showTabs(menuNames)
+	{
+		var res = "";
+
+		res += "<conteneur6>";
+		for (i = 0; i < menuNames.length; i++)
+		{
+			res += "<button onclick=\"actualMenu= " + i + ";fetchFunction()\">" + menuNames[i] + "</button>"
+		}
+		res += "</conteneur6>";
+		return (res);
+	}
 
 	//returns formatted HTML of only one bloc
 	function processBloc(bloc, header)
@@ -30,7 +72,7 @@
 				if (word)
 				{
 					//select the translation (if any) which is right after current word
-					if (language==1 && words[j + 1])
+					if (actualLanguage==1 && words[j + 1])
 						word = words[j + 1];
 
 					//select word style according to title
@@ -68,74 +110,6 @@
 		return (res);
 	}
 
-	function processBlocs(blocs, header)
-	{
-		var res = "";
-
-		var i;
-		for (i = 0; i < blocs.length; i++)
-		{
-			console.log(i);
-			res += "<conteneurMenu>" + processBloc(blocs[i], header) + "</conteneurMenu>";
-		}
-		return (res);
-	}
-
-	//shows the print menu
-	//one onclick button per menu
-	function showPrintMenus(menuNames)
-	{
-		var res = "";
-
-		var i;
-		res += "<conteneur6>";
-		res += "<p7 onclick=\"printMenu()\">Imprimer</p7>";
-		res += "</conteneur6>";
-		console.log(res);
-		return res;
-	}
-
-	//fetches the table from server
-	function fetchFunction()
-	{
-		
-		fetch('menu.tsv')
-		.then(response => response.text())
-		.then(data =>
-		{
-			document.getElementById('content').innerHTML=showPage(data);
-		});
-	}
-
-	//creates a new window with only the content of a dif to allow user to print it
-	function printMenu() //print a div
-	{
-		var divContents = document.getElementsByTagName('conteneurMenu')[0].innerHTML;
-		var a = window.open('', '', 'height=500, width=500');
-		a.document.write('<link rel="stylesheet" href="menu.css">');
-		a.document.write('<html><body>');
-		a.document.write(divContents);
-		a.document.write('</body></html>');
-
-		setTimeout(function() //Degueulasse, please find a better way to wait until page loaded before print
-		{
-			a.print();
-		}, 1000);
-	}
-
-	function showTabs(menuNames)
-	{
-		var res = "";
-
-		res += "<conteneur6>";
-		for (i = 0; i < menuNames.length; i++)
-		{
-			res += "<button onclick=\"actualMenu= " + i + ";fetchFunction()\">" + menuNames[i] + "</button>"
-		}
-		res += "</conteneur6>";
-		return (res);
-	}
-
 	function getMenuNames(menus)
 	{
 		res = [];
@@ -144,7 +118,7 @@
 		for (i = 0; i < menus.length; i++)
 		{
 			words = menus[i].split('\t');
-			if (language == 1 && words[1])
+			if (actualLanguage == 1 && words[1])
 				res.push(words[1]);
 			else
 				res.push(words[0]);
@@ -171,21 +145,32 @@
 		res += "</conteneurMenu>";
 		res += showTabs(menuNames);
 		res += showPrintMenus(menuNames);
-
-		//console.log(res);
 		return (res);
 	}
-</script>
 
+	//fetches the table from server
+	function fetchFunction()
+	{
+		
+		fetch('menu.tsv')
+		.then(response => response.text())
+		.then(data =>
+		{
+			document.getElementById('content').innerHTML=showPage(data);
+		});
+	}
+
+</script>
 <body>
+
 <conteneur3>
 	<conteneur2>
-		<img src="https://simon-ameye.github.io/brume-menu/fr.svg" width="60" height=auto onclick="language=0;fetchFunction()"></img>
-		<p7 onclick="language=0;fetchFunction()">FR</p7>
+		<img src="https://simon-ameye.github.io/brume-menu/fr.svg" width="60" height=auto onclick="actualLanguage=0;fetchFunction()"></img>
+		<p7 onclick="actualLanguage=0;fetchFunction()">FR</p7>
 	</conteneur2>
 	<conteneur2>
-		<img src="https://simon-ameye.github.io/brume-menu/en.svg" width="60" height=auto onclick="language=1;fetchFunction()"></img>
-		<p7 onclick="language=1;fetchFunction()">EN</p7>
+		<img src="https://simon-ameye.github.io/brume-menu/en.svg" width="60" height=auto onclick="actualLanguage=1;fetchFunction()"></img>
+		<p7 onclick="actualLanguage=1;fetchFunction()">EN</p7>
 	</conteneur2>
 </conteneur3>
 
@@ -193,6 +178,4 @@
 <script>fetchFunction();</script>
 
 </body>
-
-
 </html>
