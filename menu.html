@@ -127,14 +127,12 @@
 	{
 		var res = "";
 
-		res += "<div class=\"tab\">";
 		res += "<conteneur6>";
 		for (i = 0; i < menuNames.length; i++)
 		{
-			res += "<button class=\"tablinks\" onclick=\"actualMenu= " + i + ";fetchFunction()\">" + menuNames[i] + "</button>"
+			res += "<button onclick=\"actualMenu= " + i + ";fetchFunction()\">" + menuNames[i] + "</button>"
 		}
 		res += "</conteneur6>";
-		res += "</div>";
 		return (res);
 	}
 
