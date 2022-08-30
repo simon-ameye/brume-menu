@@ -7,32 +7,31 @@
 
 <script>
 	var language = 0;
+	var menuNames = [];
+	var actualMenu = 0;
 
-	function process(input)
+	//returns formatted HTML of only one bloc
+	function processBloc(bloc, header)
 	{
-		var lines = input.split('\n');
-		var header = lines[0].split('	'); //header is the first row
-		var res;
-		var words;
+		var res = "";
+		var lines = bloc.split('\n');
+		var words = "";
+		var word = "";
+
 		var i;
 		var j;
-		var word;
-		var menuSpoted = 0;
 
-		res = ""
-		for (i = 1; i < lines.length; i++)
+		for (i = 0; i < lines.length; i++)
 		{
-			words = lines[i].split('	');
-			for (j = 0; j <= words.length; j+=2)
+			words = lines[i].split('\t');
+			for (j = 0; j < words.length; j+=2)
 			{
 				word = words[j];
 				if (word)
 				{
 					//select the translation (if any) which is right after current word
 					if (language==1 && words[j + 1])
-					{
 						word = words[j + 1];
-					}
 
 					//select word style according to title
 					//title is deduced from header string
@@ -40,23 +39,19 @@
 					switch (header[j])
 					{
 						case "menu":
-							if (!menuSpoted) //add conteneur 5 and 4 boxes in the right location
-								res += "<conteneur5>"
-							if (menuSpoted)
-								res += "</conteneur4>";
-							menuSpoted = 1;
-
-							res += "<conteneur4>";
 							res += "<p1>" + word + "</p1>";
 							break;
 						case "categorie":
 							res += "<p2>" + word + "</p2>";
 							break;
 						case "nom":
-							res += "<conteneur1><p4></p4><p3>" + word + "</p3>"; //A name MUST be followed by a price
+							res += "<conteneurMenuPrix>"; //A name MUST be followed by a price
+							res += "<p4></p4>";
+							res += "<p3>" + word + "</p3>";
 							break;
 						case "prix":
-							res += "<p4>" + parseFloat(word) +"€" + "</p4></conteneur1>"; //A name MUST be followed by a price
+							res += "<p4>" + parseFloat(word) +"€" + "</p4>";
+							res += "</conteneurMenuPrix>"; //A name MUST be followed by a price
 							break;
 						case "description":
 							res += "<p5>" + word + "</p5>";
@@ -70,62 +65,136 @@
 				}
 			}
 		}
-		res += "</conteneur4>";
-		res += "</conteneur5>";
+		return (res);
+	}
+
+	function processBlocs(blocs, header)
+	{
+		var res = "";
+
+		var i;
+		for (i = 0; i < blocs.length; i++)
+		{
+			console.log(i);
+			res += "<conteneurMenu>" + processBloc(blocs[i], header) + "</conteneurMenu>";
+		}
+		return (res);
+	}
+
+	//shows the print menu
+	//one onclick button per menu
+	function showPrintMenus(menuNames)
+	{
+		var res = "";
+
+		var i;
+		res += "<conteneur6>";
+		res += "<p7 onclick=\"printMenu()\">Imprimer</p7>";
+		res += "</conteneur6>";
 		console.log(res);
 		return res;
 	}
 
-	function cb()
+	//fetches the table from server
+	function fetchFunction()
 	{
 		
-		fetch('https://raw.githubusercontent.com/simon-ameye/brume-menu/master/menu.tsv')
+		fetch('menu.tsv')
 		.then(response => response.text())
 		.then(data =>
 		{
-			document.getElementById('content').innerHTML=process(data);
+			document.getElementById('content').innerHTML=showPage(data);
 		});
 	}
 
-	function printDiv(tagName, page) //print a div
+	//creates a new window with only the content of a dif to allow user to print it
+	function printMenu() //print a div
 	{
-		var divContents = document.getElementsByTagName(tagName)[page].innerHTML;
+		var divContents = document.getElementsByTagName('conteneurMenu')[0].innerHTML;
 		var a = window.open('', '', 'height=500, width=500');
 		a.document.write('<link rel="stylesheet" href="menu.css">');
 		a.document.write('<html><body>');
 		a.document.write(divContents);
 		a.document.write('</body></html>');
-		
-		setTimeout(function() //Degueulasse, please find a betterway to wait until page loaded befo
+
+		setTimeout(function() //Degueulasse, please find a better way to wait until page loaded before print
 		{
 			a.print();
 		}, 1000);
-		
 	}
 
+	function showTabs(menuNames)
+	{
+		var res = "";
+
+		res += "<div class=\"tab\">";
+		res += "<conteneur6>";
+		for (i = 0; i < menuNames.length; i++)
+		{
+			res += "<button class=\"tablinks\" onclick=\"actualMenu= " + i + ";fetchFunction()\">" + menuNames[i] + "</button>"
+		}
+		res += "</conteneur6>";
+		res += "</div>";
+		return (res);
+	}
+
+	function getMenuNames(menus)
+	{
+		res = [];
+		var words;
+
+		for (i = 0; i < menus.length; i++)
+		{
+			words = menus[i].split('\t');
+			if (language == 1 && words[1])
+				res.push(words[1]);
+			else
+				res.push(words[0]);
+		}
+		return (res);
+	}
+
+	//returns formated table as HTML and also some other stuff
+	function showPage(input)
+	{
+		var res = "";
+		var header = input.split('\n')[0].split('\t'); //header is the first row
+		var corpus = input.split('\n').slice(1).join('\n'); //corpus is the rest
+		var blocs = corpus.split(/\n(?=[^\t])/); //each new row starting with (not a tab) is the begining of a new bloc
+		var intro = blocs[0]; //first bloc is the intro
+		var menus = blocs.slice(1); //other blocs are menus
+		var nbmenus = menus.length;
+		var menuNames = getMenuNames(menus);
+
+		res += processBloc(intro, header);
+		res += showTabs(menuNames);
+		res += "<conteneurMenu>";
+		res += processBloc(menus[actualMenu], header);
+		res += "</conteneurMenu>";
+		res += showTabs(menuNames);
+		res += showPrintMenus(menuNames);
+
+		//console.log(res);
+		return (res);
+	}
 </script>
 
 <body>
 <conteneur3>
 	<conteneur2>
-		<img src="https://simon-ameye.github.io/brume-menu/fr.svg" width="60" height=auto onclick="language=0;cb()"></img>
-		<p7 onclick="language=0;cb()">FR</p7>
+		<img src="https://simon-ameye.github.io/brume-menu/fr.svg" width="60" height=auto onclick="language=0;fetchFunction()"></img>
+		<p7 onclick="language=0;fetchFunction()">FR</p7>
 	</conteneur2>
 	<conteneur2>
-		<img src="https://simon-ameye.github.io/brume-menu/en.svg" width="60" height=auto onclick="language=1;cb()"></img>
-		<p7 onclick="language=1;cb()">EN</p7>
+		<img src="https://simon-ameye.github.io/brume-menu/en.svg" width="60" height=auto onclick="language=1;fetchFunction()"></img>
+		<p7 onclick="language=1;fetchFunction()">EN</p7>
 	</conteneur2>
 </conteneur3>
 
 <div id="content"></div>
-<script>cb();</script>
-<p7><br></p7>
-<conteneur6>
-	<p7>Print page </p7>
-	<p7 onclick="printDiv('conteneur4', 0)">1</p7>
-	<p7 onclick="printDiv('conteneur4', 1)">2</p7>
-	<p7 onclick="printDiv('conteneur5', 0)">whole page</p7>
-</conteneur6>
+<script>fetchFunction();</script>
 
 </body>
+
+
 </html>

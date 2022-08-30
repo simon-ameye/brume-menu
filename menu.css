@@ -2,7 +2,6 @@
 /*@import url("https://fonts.gstatic.com");*/
 @import url("https://fonts.googleapis.com/css2?family=Amatic+SC&family=Bebas+Neue&family=Nunito:wght@200;400&family=Yeseva+One&display=swap");
 
-
 p1 /*for menu*/
 {
 	display: flex;
@@ -14,7 +13,6 @@ p1 /*for menu*/
 	font-family: 'Yeseva One', cursive;
 	font-style: italic;
 	font-size: 350%;
-	border-bottom: solid;
 	font-weight: bolder;
 	margin-bottom: 1em;
 	margin-top: 1em;
@@ -111,7 +109,7 @@ p7 /*for language box*/
 	font-weight: bolder;
 }
 
-conteneur1 /*contener for name and price*/
+conteneurMenuPrix /*contener for name and price*/
 {
 	display:flex;
 	flex-direction: row;
@@ -132,7 +130,7 @@ conteneur3 /*contener for languages rows*/
 	justify-content: center;
 }
 
-conteneur4 /*contener for single menu*/
+conteneurMenu /*contener for single menu*/
 {
 	display:flex;
 	flex-direction: column;
@@ -140,17 +138,57 @@ conteneur4 /*contener for single menu*/
 	flex-grow: 1;
 	flex-basis: 0;
 }
-conteneur5 /*contener for all menus*/
-{
-	display:flex;
-	flex-direction: column;
-	justify-content: center;
-	flex-wrap: wrap;
-}
 
 conteneur6 /*contener for print prompt*/
 {
 	display:flex;
 	flex-direction: row;
 	justify-content:space-between;
+}
+
+/* Style the tab */
+.tab
+{
+	overflow: hidden;
+}
+
+/* Style the buttons inside the tab */
+.tab button
+{
+	background-color: inherit;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+
+	display: flex;
+	flex-direction: row;
+	justify-content:center;
+	flex-grow: 1;
+	flex-basis: 0;
+
+	color: rgb(143, 124, 98);
+	border-bottom: solid;
+	font-family: 'Amatic SC', cursive;
+	font-size: 200%;
+	font-weight: bolder;
+	margin-bottom: 1em;
+	margin-top: 1em;	
+	text-align: center;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover
+{
+	background-color: rgb(208, 208, 208);
+}
+
+/* Style the tab content */
+.tabcontent
+{
+	display: none;
+	padding: 6px 12px;
+	border-top: none;
 }
