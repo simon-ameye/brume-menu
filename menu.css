@@ -10,12 +10,12 @@ p1 /*for menu*/
 
 	text-align: center;
 	color: rgb(67, 67, 67);
-	font-family: 'Yeseva One', cursive;
+	font-family: 'Cormorant+Garamond', cursive;
 	font-style: italic;
-	font-size: 350%;
+	font-size: 450%;
 	font-weight: bolder;
-	margin-bottom: 1em;
-	margin-top: 1em;
+	margin-bottom: 0.3em;
+	margin-top: 0.3em;
 }
 
 p2 /*for categorie*/
@@ -29,8 +29,8 @@ p2 /*for categorie*/
 	font-family: 'Yeseva One', cursive;
 	font-size: 250%;
 	font-weight: bolder;
-	margin-bottom: 1em;
-	margin-top: 1em;
+	margin-bottom: 0.5em;
+	margin-top: 0.5em;
 }
 
 p3 /*for nom*/
