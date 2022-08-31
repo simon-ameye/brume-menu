@@ -39,6 +39,7 @@
 		}, 1000);
 	}
 
+	//show menu tabs
 	function showTabs(menuNames)
 	{
 		var res = "";
@@ -110,6 +111,7 @@
 		return (res);
 	}
 
+	//get menu names, depending on language
 	function getMenuNames(menus)
 	{
 		res = [];
@@ -143,7 +145,6 @@
 		res += "<conteneurMenu>";
 		res += processBloc(menus[actualMenu], header);
 		res += "</conteneurMenu>";
-		res += showTabs(menuNames);
 		res += showPrintMenus(menuNames);
 		return (res);
 	}
