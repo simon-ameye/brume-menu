@@ -150,7 +150,7 @@ conteneurMenu {
 PrintConteneurMenu {
 	display: flex;
 	flex-direction: column;
-	height: 29.7cm;
+	height: 297mm;
 	justify-content: center;
 	flex-grow: 1;
 	flex-basis: 0;
@@ -190,7 +190,6 @@ button:hover {
 
 @page {
 	size: A4;
-	margin: 1em;
 }
 
 @media print {
