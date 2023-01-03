@@ -27,14 +27,14 @@
 		var divContents = document.getElementsByTagName('conteneurMenu')[0].innerHTML;
 		var a = window.open('', '', 'height=500, width=500');
 		a.document.write('<link rel="stylesheet" href="menu.css">');
-		a.document.write('<html><body><div class="page">');
+		a.document.write('<html><body><PrintConteneurMenu>');
 		a.document.write(divContents);
-		a.document.write('</div></body></html>');
+		a.document.write('</PrintConteneurMenu></body></html>');
 
 		//Degueulasse, please find a better way to wait until page loaded before print
 		setTimeout(function () {
 			a.print();
-		}, 1000);
+		}, 2000);
 	}
 
 	//show menu tabs

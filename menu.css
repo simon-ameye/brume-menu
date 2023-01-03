@@ -16,6 +16,7 @@ p1 {
 	font-weight: bolder;
 	margin-bottom: 0.3em;
 	margin-top: 0.3em;
+	min-height: 0;
 }
 
 /*for categorie*/
@@ -31,6 +32,7 @@ p2 {
 	font-weight: bolder;
 	margin-bottom: 0.5em;
 	margin-top: 0.5em;
+	min-height: 0;
 }
 
 /*for nom*/
@@ -46,6 +48,7 @@ p3 {
 	font-size: 180%;
 	font-weight: bolder;
 	margin: 0.4em;
+	min-height: 0;
 }
 
 /*for prix*/
@@ -61,6 +64,7 @@ p4 {
 	font-family: 'Bebas Neue', cursive;
 	font-size: 140%;
 	font-weight: lighter;
+	min-height: 0;
 }
 
 /*for description*/
@@ -76,6 +80,7 @@ p5 {
 	font-weight: lighter;
 	margin-bottom: 1em;
 	margin-top: 1em;
+	min-height: 0;
 }
 
 /*for commentaire*/
@@ -92,6 +97,7 @@ p6 {
 	font-weight: bold;
 	margin-bottom: 1em;
 	margin-top: 1em;
+	min-height: 0;
 }
 
 /*for language box*/
@@ -106,6 +112,7 @@ p7 {
 	letter-spacing: 0.06em;
 	font-size: 150%;
 	font-weight: bolder;
+	min-height: 0;
 }
 
 /*contener for name and price*/
@@ -113,6 +120,7 @@ conteneurMenuPrix {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	min-height: 0;
 }
 
 /*contener for languages column*/
@@ -133,6 +141,16 @@ conteneur3 {
 conteneurMenu {
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
+	flex-grow: 1;
+	flex-basis: 0;
+}
+
+/*contener for single menu during print*/
+PrintConteneurMenu {
+	display: flex;
+	flex-direction: column;
+	height: 29.7cm;
 	justify-content: center;
 	flex-grow: 1;
 	flex-basis: 0;
@@ -172,16 +190,14 @@ button:hover {
 
 @page {
 	size: A4;
-	margin: 0;
+	margin: 1em;
 }
 
 @media print {
+
+	html,
 	body {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-evenly;
-		width: 21cm;
-		height: 29.7cm;
-		font-size: 57%;
+		width: 210mm;
+		height: 297mm;
 	}
 }
