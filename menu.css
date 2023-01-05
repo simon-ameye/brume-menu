@@ -151,8 +151,8 @@ conteneurMenu {
 PrintConteneurMenu {
 	display: flex;
 	flex-direction: column;
-	height: 99%;
-	width: 99%;
+	height: 100%;
+	width: 100%;
 	margin-left: 1em;
 	margin-right: 1em;
 	justify-content: center;
@@ -194,10 +194,10 @@ button:hover {
 
 @page {
 	size: A4;
-	margin-left: 0px;
-	margin-right: 0px;
-	margin-top: 0px;
-	margin-bottom: 0px;
+	margin-left: 1mm;
+	margin-right: 1mm;
+	margin-top: 1mm;
+	margin-bottom: 1mm;
 }
 
 @media print {
