@@ -73,19 +73,19 @@
 					//unknown title will get default style
 					switch (header[j]) {
 						case "menu":
-							res += "<p1>" + word + "</p1>";
+							//res += "<p1>" + word + "</p1>";
 							break;
 						case "categorie":
 							res += "<p2>" + word + "</p2>";
 							break;
 						case "nom":
-							res += "<conteneurMenuPrix>"; //A name MUST be followed by a price
+							res += "<columnConteneurMenuPrix><conteneurMenuPrix>"; //A name MUST be followed by a price
 							res += "<p4></p4>";
 							res += "<p3>" + word + "</p3>";
 							break;
 						case "prix":
 							res += "<p4>" + parseFloat(word) + "€" + "</p4>";
-							res += "</conteneurMenuPrix>"; //A name MUST be followed by a price
+							res += "</conteneurMenuPrix></columnConteneurMenuPrix>"; //A name MUST be followed by a price
 							break;
 						case "description":
 							res += "<p5>" + word + "</p5>";
