@@ -88,7 +88,7 @@ p5 {
 	/* font-size: 120%; */
 	font-size: 140%;
 	font-weight: lighter;
-	margin-bottom: 0em;
+	margin-bottom: 0.2em;
 	margin-top: 0em;
 	min-height: 0;
 }
@@ -221,9 +221,9 @@ button:hover {
 	margin-bottom: 0mm;
 }
 
-/* body {
+body {
 	background-color: #cf6c3b;
-} */
+}
 
 @media print {
 
