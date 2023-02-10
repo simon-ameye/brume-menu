@@ -209,9 +209,9 @@ button {
 	margin-top: 1em;
 }
 
-button:hover {
+/* button:hover {
 	background-color: rgb(208, 208, 208);
-}
+} */
 
 @page {
 	size: A4;
@@ -221,9 +221,9 @@ button:hover {
 	margin-bottom: 0mm;
 }
 
-body {
+/* body {
 	background-color: #cf6c3b;
-}
+} */
 
 @media print {
 
