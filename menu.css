@@ -86,7 +86,7 @@ p5 {
 	/* font-family: 'Nunito', sans-serif; */
 	font-family: 'Oswald', sans-serif;
 	/* font-size: 120%; */
-	font-size: 120%;
+	font-size: 140%;
 	font-weight: lighter;
 	margin-bottom: 0em;
 	margin-top: 0em;
@@ -203,7 +203,7 @@ button {
 	color: rgb(255, 255, 255);
 	border-bottom: solid;
 	font-family: 'Yeseva one', cursive;
-	font-size: 200%;
+	font-size: 150%;
 	font-weight: bold;
 	margin-bottom: 1em;
 	margin-top: 1em;
@@ -221,9 +221,9 @@ button:hover {
 	margin-bottom: 0mm;
 }
 
-body {
+/* body {
 	background-color: #cf6c3b;
-}
+} */
 
 @media print {
 
