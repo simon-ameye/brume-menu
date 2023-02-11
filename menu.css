@@ -15,7 +15,7 @@ p1 {
 	/* font-style: italic; */
 	font-size: 200%;
 	font-weight: 200;
-	margin-bottom: 0.3em;
+	/* margin-bottom: 0.3em; */
 	margin-top: 0.3em;
 	min-height: 0;
 }
@@ -31,7 +31,7 @@ p2 {
 	font-family: 'Yeseva One', cursive;
 	font-size: 250%;
 	font-weight: bolder;
-	margin-bottom: 0.3em;
+	/* margin-bottom: 0.3em; */
 	margin-top: 1em;
 	min-height: 0;
 }
@@ -88,8 +88,8 @@ p5 {
 	/* font-size: 120%; */
 	font-size: 140%;
 	font-weight: lighter;
-	margin-bottom: 0.2em;
-	margin-top: 0em;
+	/* margin-bottom: 0.2em; */
+	margin-top: 0.4em;
 	min-height: 0;
 }
 
@@ -108,7 +108,7 @@ p6 {
 	font-weight: 200;
 	/* margin-bottom: 1em; */
 	margin-top: 0em;
-	margin-bottom: 0.4em;
+	/* margin-bottom: 0.4em; */
 	min-height: 0;
 }
 
@@ -144,7 +144,7 @@ columnConteneurMenuPrix {
 	min-height: 0;
 	vertical-align: middle;
 	margin-top: 1.5em;
-	margin-bottom: 0.1em;
+	/* margin-bottom: 0.1em; */
 }
 
 /*contener for languages column*/
@@ -170,15 +170,31 @@ conteneurMenu {
 	flex-basis: 0;
 }
 
-/*contener for single menu during print*/
-PrintConteneurMenu {
+/*column contener for single menu during print*/
+columnPrintConteneurMenu {
+	height: 297mm;
+	width: 210mm;
 	display: flex;
 	flex-direction: column;
-	height: 100%;
-	width: 100%;
-	justify-content: center;
-	flex-grow: 1;
-	flex-basis: 0;
+	justify-content: space-between;
+	/* flex-grow: 1;
+	flex-basis: 0; */
+	/* font-size: 80%; */
+	/* margin: 2mm; */
+}
+
+/* raw contener for single menu during print*/
+rawPrintConteneurMenu {
+	display: flex;
+	flex-direction: raw;
+	width: 210mm;
+	height: 297mm;
+	justify-content: space-between;
+	/* flex-grow: 1;
+	flex-basis: 0; */
+	font-size: 80%;
+	/* margin: 2mm; */
+	padding: 4mm;
 }
 
 /*contener for print prompt*/
@@ -205,7 +221,7 @@ button {
 	font-family: 'Yeseva one', cursive;
 	font-size: 150%;
 	font-weight: bold;
-	margin-bottom: 1em;
+	/* margin-bottom: 1em; */
 	margin-top: 1em;
 }
 
@@ -215,15 +231,21 @@ button:hover {
 
 @page {
 	size: A4;
-	margin-left: 0mm;
-	margin-right: 0mm;
-	margin-top: 0mm;
-	margin-bottom: 0mm;
+	/*
+	margin-left: 2mm;
+	margin-right: 2mm;
+	margin-top: 2mm;
+	margin-bottom: 2mm; */
+	/* transform: scale(0.8, 0.8); */
 }
 
-/* body {
-	background-color: #cf6c3b;
-} */
+body {
+	/* background-color: #cf6c3b; */
+	/* size: A4; */
+	/* zoom: 0.9; */
+	/* vertical-align: middle; */
+	justify-content: center;
+}
 
 @media print {
 
