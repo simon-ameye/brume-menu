@@ -15,9 +15,9 @@
 		var res = "";
 
 		var i;
-		res += "<conteneur6>";
+		res += "<conteneurButtons>";
 		res += "<p7 onclick=\"printMenu()\">Imprimer</p7>";
-		res += "</conteneur6>";
+		res += "</conteneurButtons>";
 		return res;
 	}
 
@@ -41,11 +41,11 @@
 	function showTabs(menuNames) {
 		var res = "";
 
-		res += "<conteneur6>";
+		res += "<conteneurButtons>";
 		for (i = 0; i < menuNames.length; i++) {
 			res += "<button onclick=\"actualMenu= " + i + ";fetchFunction()\">" + menuNames[i] + "</button>"
 		}
-		res += "</conteneur6>";
+		res += "</conteneurButtons>";
 		return (res);
 	}
 
@@ -133,6 +133,9 @@
 		res += "<conteneurMenu>";
 		res += processBloc(menus[actualMenu], header);
 		res += "</conteneurMenu>";
+		res += "<br>"
+		res += "<br>"
+		res += "<br>"
 		res += showPrintMenus(menuNames);
 		return (res);
 	}

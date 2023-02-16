@@ -165,10 +165,12 @@ rawPrintConteneurMenu {
 }
 
 /*contener for print prompt*/
-conteneur6 {
+conteneurButtons {
 	display: flex;
 	flex-direction: row;
-	justify-content: right;
+	justify-content: center;
+	flex-wrap: wrap;
+	
 }
 
 button {
@@ -178,7 +180,7 @@ button {
 	cursor: pointer;
 	transition: 0.3s;
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	justify-content: center;
 	align-items: center;
 	flex-grow: 1;
