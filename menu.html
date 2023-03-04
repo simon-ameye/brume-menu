@@ -8,20 +8,32 @@
 <script>
 	var actualLanguage = 0;
 	var actualMenu = 0;
-	var reps = 6 * 5 + 1;
-	var initDelay = 2;
-	var endDelay = 30;
+
+	var maxDuration = 400; //ms
+	var delay = 0;
+	var reps = 0;
+	var t = 0;
+
+	function reset() {
+		actualLanguage = 0;
+		actualMenu = 0;
+		fetchFunction();
+	}
 
 	function coolAnimation() {
-		(function myLoop(i) {
+		(function myLoop(t) {
 			setTimeout(function () {
-				actualLanguage = i % 2;
-				actualMenu = i % 3;
-				console.log(actualLanguage);
-				console.log(actualMenu);
+				actualLanguage = reps % 2;
+				actualMenu = reps % 3;
 				fetchFunction();
-				if (++i < reps) myLoop(i);
-			},  initDelay + (endDelay - initDelay) * i / reps) //10 -> 500 
+				delay = 2 + t / 3; //formula
+				t += delay;
+				reps++;
+				if (t < maxDuration) myLoop(t)
+				else {
+					reset();
+				}
+			}, delay)
 		})(0);
 	}
 
