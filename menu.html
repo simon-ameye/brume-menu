@@ -9,12 +9,30 @@
 	var actualLanguage = 0;
 	var actualMenu = 0;
 
-	//shows the print menu
-	//one onclick button per menu
-	function showPrintMenus(menuNames) {
+	function showLanguageMenu() {
 		var res = "";
 
-		var i;
+		res += "<conteneur3>";
+		res += "<conteneur2>";
+		res += "<img src=\"https://simon-ameye.github.io/brume-menu/fr.svg\" width=\"60\" height=auto onclick=\"actualLanguage=0;fetchFunction()\"></img>";
+		res += "";
+		res += "<p7 " + (actualLanguage == 0 ? "class = actualMenuButton" : "") + " onclick=\"actualLanguage=0;fetchFunction()\">FR</p7>";
+		res += "</conteneur2>";
+		res += "<conteneur2>";
+		res += "<img src=\"https://simon-ameye.github.io/brume-menu/en.svg\" width=\"60\" height=auto onclick=\"actualLanguage=1;fetchFunction()\"></img>";
+		res += "";
+		res += "<p7 " + (actualLanguage == 1 ? "class = actualMenuButton" : "") + " onclick=\"actualLanguage=1;fetchFunction()\">EN</p7>";
+		res += "</conteneur2>";
+		res += "</conteneur3>";
+		return (res);
+	}
+
+
+	//shows the print menu
+	//one onclick button per menu
+	function showPrintMenus() {
+		var res = "";
+
 		res += "<conteneurButtons>";
 		res += "<p7 onclick=\"printMenu()\">Imprimer</p7>";
 		res += "</conteneurButtons>";
@@ -133,6 +151,7 @@
 		var nbmenus = menus.length;
 		var menuNames = getMenuNames(menus);
 
+		res += showLanguageMenu();
 		res += processBloc(intro, header);
 		res += showTabs(menuNames);
 		res += "<conteneurMenu>";
@@ -157,22 +176,8 @@
 </script>
 
 <body>
-	<conteneur3>
-		<conteneur2>
-			<img src="https://simon-ameye.github.io/brume-menu/fr.svg" width="60" height=auto
-				onclick="actualLanguage=0;fetchFunction()"></img>
-			<p7 onclick="actualLanguage=0;fetchFunction()">FR</p7>
-		</conteneur2>
-		<conteneur2>
-			<img src="https://simon-ameye.github.io/brume-menu/en.svg" width="60" height=auto
-				onclick="actualLanguage=1;fetchFunction()"></img>
-			<p7 onclick="actualLanguage=1;fetchFunction()">EN</p7>
-		</conteneur2>
-	</conteneur3>
-
 	<div id="content"></div>
 	<script>fetchFunction();</script>
-	<p7></p7>
 </body>
 
 </html>

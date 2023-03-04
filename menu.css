@@ -200,12 +200,6 @@ button {
 	border-color: black;
 }
 
-button:hover {
-	background-color: rgb(102, 102, 102);
-	color: rgb(255, 255, 255);
-	border-color: black;
-}
-
 @page {
 	size: A4;
 }
