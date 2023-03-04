@@ -170,7 +170,7 @@ conteneurButtons {
 	flex-direction: row;
 	justify-content: center;
 	flex-wrap: wrap;
-	
+
 }
 
 button {
@@ -193,6 +193,11 @@ button {
 	margin-top: 1em;
 }
 
+.actualMenuButton {
+	background-color: rgb(0, 0, 0);
+	color:rgb(255, 255, 255);
+}
+
 button:hover {
 	background-color: rgb(208, 208, 208);
 }
@@ -206,6 +211,7 @@ body {
 }
 
 @media print {
+
 	html,
 	body {
 		width: 210mm;

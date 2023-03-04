@@ -43,7 +43,12 @@
 
 		res += "<conteneurButtons>";
 		for (i = 0; i < menuNames.length; i++) {
-			res += "<button onclick=\"actualMenu= " + i + ";fetchFunction()\">" + menuNames[i] + "</button>"
+			if (i == actualMenu) {
+				res += "<button class = actualMenuButton onclick=\"actualMenu= " + i + ";fetchFunction()\">" + menuNames[i] + "</button>"
+			}
+			else {
+				res += "<button onclick=\"actualMenu= " + i + ";fetchFunction()\">" + menuNames[i] + "</button>"
+			}
 		}
 		res += "</conteneurButtons>";
 		return (res);
