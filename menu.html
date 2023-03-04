@@ -8,6 +8,22 @@
 <script>
 	var actualLanguage = 0;
 	var actualMenu = 0;
+	var reps = 6 * 5 + 1;
+	var initDelay = 2;
+	var endDelay = 30;
+
+	function coolAnimation() {
+		(function myLoop(i) {
+			setTimeout(function () {
+				actualLanguage = i % 2;
+				actualMenu = i % 3;
+				console.log(actualLanguage);
+				console.log(actualMenu);
+				fetchFunction();
+				if (++i < reps) myLoop(i);
+			},  initDelay + (endDelay - initDelay) * i / reps) //10 -> 500 
+		})(0);
+	}
 
 	function showLanguageMenu() {
 		var res = "";
@@ -15,12 +31,10 @@
 		res += "<conteneur3>";
 		res += "<conteneur2>";
 		res += "<img src=\"https://simon-ameye.github.io/brume-menu/fr.svg\" width=\"60\" height=auto onclick=\"actualLanguage=0;fetchFunction()\"></img>";
-		res += "";
 		res += "<p7 " + (actualLanguage == 0 ? "class = actualMenuButton" : "") + " onclick=\"actualLanguage=0;fetchFunction()\">FR</p7>";
 		res += "</conteneur2>";
 		res += "<conteneur2>";
 		res += "<img src=\"https://simon-ameye.github.io/brume-menu/en.svg\" width=\"60\" height=auto onclick=\"actualLanguage=1;fetchFunction()\"></img>";
-		res += "";
 		res += "<p7 " + (actualLanguage == 1 ? "class = actualMenuButton" : "") + " onclick=\"actualLanguage=1;fetchFunction()\">EN</p7>";
 		res += "</conteneur2>";
 		res += "</conteneur3>";
@@ -177,6 +191,7 @@
 
 <body>
 	<div id="content"></div>
+	<script>coolAnimation();</script>
 	<script>fetchFunction();</script>
 </body>
 
