@@ -9,29 +9,32 @@
 	var actualLanguage = 0;
 	var actualMenu = 0;
 
-	var maxDuration = 400; //ms
+	var maxDuration = 600; //ms
 	var delay = 0;
 	var reps = 0;
 	var t = 0;
 
-	function reset() {
+	function resetAnimation() {
 		actualLanguage = 0;
 		actualMenu = 0;
+		document.body.style.background = "white";
 		fetchFunction();
 	}
 
 	function coolAnimation() {
 		(function myLoop(t) {
 			setTimeout(function () {
+				l = 255 * (t / maxDuration) + 50;
+				document.body.style.background = 'rgb(' + l + ',' + l + ',' + l + ')';
 				actualLanguage = reps % 2;
 				actualMenu = reps % 3;
 				fetchFunction();
-				delay = 2 + t / 3; //formula
+				delay = 2 + t / 10; //formula
 				t += delay;
 				reps++;
 				if (t < maxDuration) myLoop(t)
 				else {
-					reset();
+					resetAnimation();
 				}
 			}, delay)
 		})(0);
@@ -177,6 +180,7 @@
 		var nbmenus = menus.length;
 		var menuNames = getMenuNames(menus);
 
+		res += "<body>";
 		res += showLanguageMenu();
 		res += processBloc(intro, header);
 		res += showTabs(menuNames);
@@ -187,6 +191,7 @@
 		res += "<br>"
 		res += "<br>"
 		res += showPrintMenus(menuNames);
+		res += "</body>";
 		return (res);
 	}
 
@@ -201,10 +206,9 @@
 
 </script>
 
-<body>
-	<div id="content"></div>
-	<script>coolAnimation();</script>
-	<script>fetchFunction();</script>
-</body>
+<div id="content"></div>
+<script>coolAnimation();</script>
+<script>fetchFunction();</script>
+
 
 </html>
