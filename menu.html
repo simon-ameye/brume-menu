@@ -14,32 +14,6 @@
 	var reps = 0;
 	var t = 0;
 
-	function resetAnimation() {
-		actualLanguage = 0;
-		actualMenu = 0;
-		document.body.style.background = "white";
-		fetchFunction();
-	}
-
-	function coolAnimation() {
-		(function myLoop(t) {
-			setTimeout(function () {
-				l = 255 * (t / maxDuration) + 50;
-				document.body.style.background = 'rgb(' + l + ',' + l + ',' + l + ')';
-				actualLanguage = reps % 2;
-				actualMenu = reps % 3;
-				fetchFunction();
-				delay = 2 + t / 10; //formula
-				t += delay;
-				reps++;
-				if (t < maxDuration) myLoop(t)
-				else {
-					resetAnimation();
-				}
-			}, delay)
-		})(0);
-	}
-
 	function showLanguageMenu() {
 		var res = "";
 
@@ -207,7 +181,6 @@
 </script>
 
 <div id="content"></div>
-<script>coolAnimation();</script>
 <script>fetchFunction();</script>
 
 
