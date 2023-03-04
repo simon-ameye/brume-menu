@@ -212,6 +212,7 @@ body {
 
 	html,
 	body {
+		background-color: white;
 		width: 210mm;
 		height: 297mm;
 	}
