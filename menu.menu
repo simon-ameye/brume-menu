@@ -4,10 +4,11 @@
 //Chaque élément est séparé de sa traduction facultative par un délimiteur
 //La première ligne spécifie le niveau en fonction du nombre de délimiteurs
 //Les lignes vides et les lignes commençant par "//" sont ignorées
-//Exemples :
+
+//Recommandations :
 //un menu :        menuFr_menuEn
 //une catégorie :  __catégorieFr_catégorieEn
-//un produit :     ____produitFr_produitEn_prixFr_prixEn_descriptionFr_descriptionEn
+//un produit :     ____produitFr_produitEn_prix__descriptionFr_descriptionEn
 //un commentaire : __________commentaireFr_commentaireEn
 
 menu_en_categorie_en_produit_en_prix_en_description_en_commentaire_en
