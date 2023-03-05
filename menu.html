@@ -174,7 +174,7 @@
 
 	//fetches the table from server
 	function fetchFunction() {
-		fetch('menu.ssv')
+		fetch('menu.menu')
 			.then(response => response.text())
 			.then(data => {
 				document.getElementById('content').innerHTML = showPage(data);
