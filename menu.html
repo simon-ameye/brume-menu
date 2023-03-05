@@ -6,13 +6,10 @@
 <link rel="stylesheet" href="menu.css">
 
 <script>
+	var tableDelimiter = ';'
+
 	var actualLanguage = 0;
 	var actualMenu = 0;
-
-	var maxDuration = 600; //ms
-	var delay = 0;
-	var reps = 0;
-	var t = 0;
 
 	function showLanguageMenu() {
 		var res = "";
@@ -86,7 +83,7 @@
 		var j;
 
 		for (i = 0; i < lines.length; i++) {
-			words = lines[i].split('\t');
+			words = lines[i].split(tableDelimiter);
 			for (j = 0; j < words.length; j += 2) {
 				word = words[j];
 				if (word) {
@@ -134,7 +131,7 @@
 		var words;
 
 		for (i = 0; i < menus.length; i++) {
-			words = menus[i].split('\t');
+			words = menus[i].split(tableDelimiter);
 			if (actualLanguage == 1 && words[1])
 				res.push(words[1]);
 			else
@@ -146,14 +143,14 @@
 	//returns formated table as HTML and also some other stuff
 	function showPage(input) {
 		var cleanInput = input;
-		cleanInput = cleanInput.replace(/(\r\n)/gm, "\n"); //set \n as a delimiter by replacing \r\n
-		cleanInput = cleanInput.replace(/(\r)/gm, "\n"); //set \n as a delimiter by replacing \r
+		cleanInput = cleanInput.replace(/(\r\n)/gm, "\n"); //set \n as delimiter by replacing \r\n
+		cleanInput = cleanInput.replace(/(\r)/gm, "\n"); //set \n as delimiter by replacing \r
 		cleanInput = cleanInput.replace(/^\/\/.*\n/gm, ""); //remove comments : lines starting with //
 		cleanInput = cleanInput.replace(/^\n/gm, ""); //remove empty lines
 
-		var header = cleanInput.split('\n')[0].split('\t'); //header is the first row
+		var header = cleanInput.split('\n')[0].split(tableDelimiter); //header is the first row
 		var corpus = cleanInput.split('\n').slice(1).join('\n'); //corpus is the rest
-		var blocs = corpus.split(/\n(?=[^\t])/); //each new row starting with (not a tab) is the begining of a new bloc
+		var blocs = corpus.split(RegExp("\n(?=[^" + tableDelimiter + "])")); //each new row starting with (not a delimiter) is the begining of a new bloc
 		var intro = blocs[0]; //first bloc is the intro
 		var menus = blocs.slice(1); //other blocs are menus
 		var nbmenus = menus.length;
