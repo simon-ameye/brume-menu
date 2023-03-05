@@ -30,11 +30,12 @@
 
 	//shows the print menu
 	//one onclick button per menu
-	function showPrintMenus() {
+	function showBottomMenus() {
 		var res = "";
 
 		res += "<conteneurButtons>";
-		res += "<p7 onclick=\"printMenu()\">Imprimer</p7>";
+		res += "<p7 onclick=\"printMenu()\">Print<\/p7>";
+		res += "<a href=\"https:\/\/github.com\/simon-ameye\/brume-menu\"><p7>Edit on GitHub<\/p7><\/a>";
 		res += "</conteneurButtons>";
 		return res;
 	}
@@ -145,7 +146,7 @@
 		var cleanInput = input;
 		cleanInput = cleanInput.replace(/(\r\n)/gm, "\n"); //set \n as delimiter by replacing \r\n
 		cleanInput = cleanInput.replace(/(\r)/gm, "\n"); //set \n as delimiter by replacing \r
-		cleanInput = cleanInput.replace(/^\/\/.*\n/gm, ""); //remove comments : lines starting with //
+		cleanInput = cleanInput.replace(/^\/\/.*\n*/gm, ""); //remove comments : lines starting with //
 		cleanInput = cleanInput.replace(/^\n/gm, ""); //remove empty lines
 
 		var header = cleanInput.split('\n')[0].split(tableDelimiter); //header is the first row
@@ -167,7 +168,7 @@
 		res += "<br>"
 		res += "<br>"
 		res += "<br>"
-		res += showPrintMenus(menuNames);
+		res += showBottomMenus();
 		res += "</body>";
 		return (res);
 	}
@@ -180,11 +181,8 @@
 				document.getElementById('content').innerHTML = showPage(data);
 			});
 	}
-
 </script>
 
 <div id="content"></div>
 <script>fetchFunction();</script>
-
-
 </html>

@@ -1,28 +1,29 @@
-//Ce fichier contient les éléments à mettre en forme dans le menu
-//La mise en forme des éléments considère le niveau de chaque élément
-//Le niveau d'un élément est déduit du nombre de délimiteurs avant lui
+//Ce fichier contient les éléments à mettre en forme
+//La mise en forme des éléments est basée sur le niveau de chaque élément
+//Le niveau d'un élément est déduit du nombre de délimiteurs "_" avant lui
 //Chaque élément est séparé de sa traduction facultative par un délimiteur
 //La première ligne spécifie le niveau en fonction du nombre de délimiteurs
-//Les lignes vides et les lignes commençant par "//" sont ignorées
+//Les lignes vides ou commençant par "//" sont ignorées
 //Note : Le prix possède lui aussi une traduction facultative. Si elle est spécifiée, le prix diffèrera selon la langue...
 
 //Recommandations :
-menuFr_menuEn
-catégorieFr_catégorieEn
-____produitFr_produitEn_prix__descriptionFr_descriptionEn
-__________commentaireFr_commentaireEn
+//menuFr_menuEn
+//catégorieFr_catégorieEn
+//____produitFr_produitEn_prix__descriptionFr_descriptionEn
+//__________commentaireFr_commentaireEn
 
 //Exemple :
-Boissons_Drinks
-__________Rafraichissant !_Refreshing !
-Jus_Juice
-____Jus d'orange_Orange juice_3.5__Avec deux oranges_With two oranges
-____Jus de tomate_Tomato juice_2
-
-Café_Coffee
-____Expresso__1.5
-____Latté_Latte_4
-__________<3
+//menu_en_categorie_en_produit_en_prix_en_description_en_commentaire_en
+//Boissons_Drinks
+//__________Rafraichissant !_Refreshing !
+//Jus_Juice
+//____Jus d'orange_Orange juice_3.5__Avec deux oranges_With two oranges
+//____Jus de tomate_Tomato juice_2
+//
+//Café_Coffee
+//____Expresso__1.5
+//____Latté_Latte_4
+//__________made with <3
 
 menu_en_categorie_en_produit_en_prix_en_description_en_commentaire_en
 __________Toutes nos recettes sont faites maison, nos produits sont de saison et nos fruits et légumes sont locaux._All our recipes are homemade, our products are seasonal and our fruits and vegetables are local.

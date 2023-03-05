@@ -1,6 +1,6 @@
 # brume-menu
 
-Here is the menu of our coffeshop.
+Here is the menu website made with <3 by Simon for Roxane.
 
 It is hosted by Google Sites and Github for free !
 
@@ -10,8 +10,8 @@ Visit us in Nice : https://goo.gl/maps/NQpQ787KMkiAHNmv6 :)
 * Github hosts menu data as ```tsv``` table : https://raw.githubusercontent.com/simon-ameye/brume-menu/master/menu.tsv
 * menu.html formats table data to HTML using JavaScript
 * menu.html is hosted by Github pages : https://simon-ameye.github.io/brume-menu/menu.html
-* Google sites hosts restaurant website : accessible via https://www.brumecoffeenice.fr/
-* Google sites menu page embed Github page as Embed Website Widget 
+* Google sites hosts restaurant's website : accessible via https://www.brumecoffeenice.fr/
+* Google sites menu page embeds Github page as an Embed Website Widget 
 
 ## Data
 Data is fetched using : ```fetch().then()``` synchronously
