@@ -1,9 +1,10 @@
 //Ce fichier contient les éléments à mettre en forme dans le menu
 //La mise en forme des éléments considère le niveau de chaque élément
-//Le niveeau d'un élément est déduit du nombre de délimiteurs avant lui
+//Le niveau d'un élément est déduit du nombre de délimiteurs avant lui
 //Chaque élément est séparé de sa traduction facultative par un délimiteur
 //La première ligne spécifie le niveau en fonction du nombre de délimiteurs
 //Les lignes vides et les lignes commençant par "//" sont ignorées
+//Note : Le prix possède lui aussi une traduction facultative. Si elle est spécifiée, le prix diffèrera selon la langue...
 
 //Recommandations :
 //un menu :        menuFr_menuEn
