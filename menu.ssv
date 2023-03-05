@@ -5,65 +5,65 @@
 //La première ligne spécifie le niveau en fonction du nombre de délimiteurs
 //Les lignes vides et les lignes commençant par "//" sont ignorées
 //Exemples :
-//un menu :        menuFr-menuEn
-//une catégorie :  --catégorieFr-catégorieEn
-//un produit :     ----produitFr-produitEn-prixFr-prixEn-descriptionFr-descriptionEn
-//un commentaire : ----------commentaireFr-commentaireEn
+//un menu :        menuFr_menuEn
+//une catégorie :  __catégorieFr_catégorieEn
+//un produit :     ____produitFr_produitEn_prixFr_prixEn_descriptionFr_descriptionEn
+//un commentaire : __________commentaireFr_commentaireEn
 
-menu-en-categorie-en-produit-en-prix-en-description-en-commentaire-en
-----------Toutes nos recettes sont faites maison, nos produits sont de saison et nos fruits et légumes sont locaux.-All our recipes are homemade, our products are seasonal and our fruits and vegetables are local.
+menu_en_categorie_en_produit_en_prix_en_description_en_commentaire_en
+__________Toutes nos recettes sont faites maison, nos produits sont de saison et nos fruits et légumes sont locaux._All our recipes are homemade, our products are seasonal and our fruits and vegetables are local.
 
-Boissons-Drinks
---Barista
-----------(Servis chauds ou glacés)-(Served hot or iced)
-----Expresso--2
-----Cortado--2.5
-----Double Expresso--3
-----Americano--3
-----Cappuccino--4
-----Flat white--4.5
-----Latte--4.5
-----Moka--5
-----Latte double-Double latte-5
---Nos tasses-Our cups
-----Chocolat chaud maison-Homemade hot chocolate-5
-----Chaï latte maison-Homemade chaï latte-4.5
-----Blue latte--5--Infusion de fleurs, gingembre, sucre de coco-Flower infusion, ginger, coconut sugar
-----Dirty chaï latte--5--Chaï latte avec un shot de café-Chaï latte with coffee shot
-----Matcha latte--4.5
-----Golden latte--4.5
-//----Thé vert/noir/blanc-Green/black/white tea-4--De chez « l’autre thé », bio-From « l’autre thé », organic
-----Thé vert/noir-Green/black tea-4--De chez « l’autre thé », bio-From « l’autre thé », organic
-----Infusion bio-Organic Infusion-4
-----Supplément lait d’avoine & lait d’amande-Almond or oat milk extra-0.5
---Boissons fraîches-Fresh drinks
-----Jus du jour-Juice of the day-5--Pressé à froid minute-Cold pressed
-----Orange pressée-Orange juice-4.5
-----Citronnade du jour-Lemonade of the day-4
+Boissons_Drinks
+__Barista
+__________(Servis chauds ou glacés)_(Served hot or iced)
+____Expresso__2
+____Cortado__2.5
+____Double Expresso__3
+____Americano__3
+____Cappuccino__4
+____Flat white__4.5
+____Latte__4.5
+____Moka__5
+____Latte double_Double latte_5
+__Nos tasses_Our cups
+____Chocolat chaud maison_Homemade hot chocolate_5
+____Chaï latte maison_Homemade chaï latte_4.5
+____Blue latte__5__Infusion de fleurs, gingembre, sucre de coco_Flower infusion, ginger, coconut sugar
+____Dirty chaï latte__5__Chaï latte avec un shot de café_Chaï latte with coffee shot
+____Matcha latte__4.5
+____Golden latte__4.5
+//____Thé vert/noir/blanc_Green/black/white tea_4__De chez « l’autre thé », bio_From « l’autre thé », organic
+____Thé vert/noir_Green/black tea_4__De chez « l’autre thé », bio_From « l’autre thé », organic
+____Infusion bio_Organic Infusion_4
+____Supplément lait d’avoine & lait d’amande_Almond or oat milk extra_0.5
+__Boissons fraîches_Fresh drinks
+____Jus du jour_Juice of the day_5__Pressé à froid minute_Cold pressed
+____Orange pressée_Orange juice_4.5
+____Citronnade du jour_Lemonade of the day_4
 
-Plats et desserts-Plates and desserts
---Toute la journée-All day
-----Les œufs à la coque-Boiled eggs-6.5--Deux oeufs bios à la coque, mouillettes de pain de campagne-Two organic eggs, country bread sticks
-----Granola de saison-Seasonal Granola-7--Yaourt grec, fruits de saison, sirop d’érable-Greek yogurt, seasonal fruits, maple syrup
-----Les scones salés-Salty scones-8--Deux scones, chèvre frais, ciboulette-Two scones, fresh goat cheese, chive
-----Les scones sucrés-Sweet scones-6--Deux scones, servis avec du beurre et de la confiture-Two scones, served with butter and jam
---Déjeuner-Lunch
-----------(À partir de 12H00 jusqu’à 15H00)-(From 12H00 to 15H00)
-----Banh mi (vegan)-Banh mi (vegan)-9.5--Sandwich concombre, pommes granny smith, carottes, tofu mariné à la sauce soja hoisin et cacahuète, oignons frits, coriandre, menthe-Sandwich cucumber, granny smith apples, carrots, tofu marinated in hoisin soy sauce and peanuts, fried onions
-----Tartine chèvre-poires-Toast with goat cheese and pear-14--Toast de pain de campagne de chez Mama Baker, chèvre frais, poires pochées au vin et épices d'hiver, mâche ciboulette-Country bread toast from Mama Baker, fresh goat cheese, pears poached in wine and winter spices, chive mache
-----Tartine burrata-champignons-Toast with burrata and mushrooms-14--Pain de campagne toasté de chez Mama Baker, poêlée de champignons, mâche, ciboulette, huile d'olive et fleur de sel-Country bread toast from Mama Baker, pan-fried mushrooms, lamb’s lettuce, chives, olive oil and fleur de sel
-----Brume d'hiver-Brume d'hiver-13--Yaourt grec, fêta, zaatar, compotée d'agrumes à la fleur d'oranger, coriandre fraîche, toast de pain de campagne de chez Mama Baker-Greek yogurt, feta, zaatar, citrus fruit compote with orange blossom, fresh coriander, country bread toast from Mama Baker
-//----Brume's curry (vegan)-Brume's curry (vegan)-14--Curry de légumes au lait de coco, vermicelles de riz au curcuma, coriandre fraîche-Vegetable curry with coconut milk, rice vermicelli with turmeric, fresh coriander
---Pâtisseries et douceurs-Pastries and sweets-------À découvrir au comptoir…-To discover at the counter…
+Plats et desserts_Plates and desserts
+__Toute la journée_All day
+____Les œufs à la coque_Boiled eggs_6.5__Deux oeufs bios à la coque, mouillettes de pain de campagne_Two organic eggs, country bread sticks
+____Granola de saison_Seasonal Granola_7__Yaourt grec, fruits de saison, sirop d’érable_Greek yogurt, seasonal fruits, maple syrup
+____Les scones salés_Salty scones_8__Deux scones, chèvre frais, ciboulette_Two scones, fresh goat cheese, chive
+____Les scones sucrés_Sweet scones_6__Deux scones, servis avec du beurre et de la confiture_Two scones, served with butter and jam
+__Déjeuner_Lunch
+__________(À partir de 12H00 jusqu’à 15H00)_(From 12H00 to 15H00)
+____Banh mi (vegan)_Banh mi (vegan)_9.5__Sandwich concombre, pommes granny smith, carottes, tofu mariné à la sauce soja hoisin et cacahuète, oignons frits, coriandre, menthe_Sandwich cucumber, granny smith apples, carrots, tofu marinated in hoisin soy sauce and peanuts, fried onions
+____Tartine chèvre_poires_Toast with goat cheese and pear_14__Toast de pain de campagne de chez Mama Baker, chèvre frais, poires pochées au vin et épices d'hiver, mâche ciboulette_Country bread toast from Mama Baker, fresh goat cheese, pears poached in wine and winter spices, chive mache
+____Tartine burrata_champignons_Toast with burrata and mushrooms_14__Pain de campagne toasté de chez Mama Baker, poêlée de champignons, mâche, ciboulette, huile d'olive et fleur de sel_Country bread toast from Mama Baker, pan_fried mushrooms, lamb’s lettuce, chives, olive oil and fleur de sel
+____Brume d'hiver_Brume d'hiver_13__Yaourt grec, fêta, zaatar, compotée d'agrumes à la fleur d'oranger, coriandre fraîche, toast de pain de campagne de chez Mama Baker_Greek yogurt, feta, zaatar, citrus fruit compote with orange blossom, fresh coriander, country bread toast from Mama Baker
+//____Brume's curry (vegan)_Brume's curry (vegan)_14__Curry de légumes au lait de coco, vermicelles de riz au curcuma, coriandre fraîche_Vegetable curry with coconut milk, rice vermicelli with turmeric, fresh coriander
+__Pâtisseries et douceurs_Pastries and sweets_______À découvrir au comptoir…_To discover at the counter…
 
-Épicerie-Grocery
---Sachets de café pour espresso-Coffee bags for espresso
-----kb : Taquaral--15--250g
-----kb : Las Codornices--15--250g
-----kawa : Pérou : Incahuasi--10--200g
-----kawa : Guatemala : Buena Esperanza--10--200g
---Sachets de café pour filtre-Coffee bags for filter
-----kawa : Papouasie Nouvelle Guinée--12--200g
-----kawa : Kenya Kii Ab--15--200g
---Boîtes de thé-Tea boxes
-----L'Autre Thé : tous les parfums-L'Autre Thé : All flavors-12--Taille unique-Unique size
+Épicerie_Grocery
+__Sachets de café pour espresso_Coffee bags for espresso
+____kb - Taquaral__15__250g
+____kb - Las Codornices__15__250g
+____kawa - Pérou - Incahuasi__10__200g
+____kawa - Guatemala - Buena Esperanza__10__200g
+__Sachets de café pour filtre_Coffee bags for filter
+____kawa - Papouasie-Nouvelle-Guinée__12__200g
+____kawa - Kenya - Kii Ab__15__200g
+__Boîtes de thé_Tea boxes
+____L'Autre Thé - tous les parfums_L'Autre Thé - All flavors_12__Taille unique_Unique size
