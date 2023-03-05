@@ -145,15 +145,17 @@
 
 	//returns formated table as HTML and also some other stuff
 	function showPage(input) {
-		var res = "";
-		var header = input.split('\n')[0].split('\t'); //header is the first row
-		var corpus = input.split('\n').slice(1).join('\n'); //corpus is the rest
+		var cleanInput = input.replace(/^\/\/.*$/gm, ''); //remove comments : lines starting with //
+		cleanInput = cleanInput.replace(/^\s*$/gm, ''); //remove empty lines : lines containing ,othing or whitespaces
+		var header = cleanInput.split('\n')[0].split('\t'); //header is the first row
+		var corpus = cleanInput.split('\n').slice(1).join('\n'); //corpus is the rest
 		var blocs = corpus.split(/\n(?=[^\t])/); //each new row starting with (not a tab) is the begining of a new bloc
 		var intro = blocs[0]; //first bloc is the intro
 		var menus = blocs.slice(1); //other blocs are menus
 		var nbmenus = menus.length;
 		var menuNames = getMenuNames(menus);
 
+		var res = "";
 		res += "<body>";
 		res += showLanguageMenu();
 		res += processBloc(intro, header);
