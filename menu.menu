@@ -8,15 +8,15 @@
 
 //Recommandations :
 //menuFr_menuEn
-//catégorieFr_catégorieEn
+//__catégorieFr_catégorieEn
 //____produitFr_produitEn_prix__descriptionFr_descriptionEn
 //__________commentaireFr_commentaireEn
 
 //Exemple :
 //menu_en_categorie_en_produit_en_prix_en_description_en_commentaire_en
 //Boissons_Drinks
+//__Jus_Juice
 //__________Rafraichissant !_Refreshing !
-//Jus_Juice
 //____Jus d'orange_Orange juice_3.5__Avec deux oranges_With two oranges
 //____Jus de tomate_Tomato juice_2
 //
