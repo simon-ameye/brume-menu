@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
 
-/*for menu*/
-p1 {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	text-align: center;
+default {
+	color: rgb(255, 0, 0);
+}
+
+/*for menuName*/
+menuName {
 	color: rgb(0, 0, 0);
 	font-family: 'Oswald', sans-serif;
 	font-size: 200%;
@@ -16,70 +16,51 @@ p1 {
 }
 
 /*for categorie*/
-p2 {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+cathegory {
 	text-align: center;
 	color: rgb(0, 0, 0);
 	font-family: 'Yeseva One', cursive;
 	font-size: 250%;
 	font-weight: bolder;
-	margin-top: 1em;
+	margin-top: 0.5em;
 	min-height: 0;
 }
 
 /*for nom*/
-p3 {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+name {
 	text-align: center;
 	color: rgb(0, 0, 0);
 	font-family: 'Oswald', sans-serif;
 	font-size: 170%;
 	font-weight: 200;
 	text-transform: uppercase;
-	min-height: 0;
-	vertical-align: middle;
 }
 
 /*for prix*/
-p4 {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	flex-grow: 1;
-	flex-basis: 0;
+price {
 	text-align: right;
 	color: rgb(0, 0, 0);
 	font-family: 'Oswald', sans-serif;
 	font-size: 140%;
 	font-weight: 200;
-	min-height: 0;
-	vertical-align: middle;
-	margin-left: 1em;
+}
+
+.invisible {
+	visibility: hidden;
 }
 
 /*for description*/
-p5 {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+description {
 	text-align: center;
 	color: rgb(0, 0, 0);
 	font-family: 'Oswald', sans-serif;
 	font-size: 140%;
 	font-weight: 200;
 	margin-top: 0.4em;
-	min-height: 0;
 }
 
 /*for commentaire*/
-p6 {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+comment {
 	text-align: center;
 	color: rgb(0, 0, 0);
 	font-family: 'Oswald', sans-serif;
@@ -90,7 +71,7 @@ p6 {
 }
 
 /*for language box*/
-p7 {
+language {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -103,72 +84,55 @@ p7 {
 }
 
 /*contener for name and price*/
-conteneurMenuPrix {
+namePriceR {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	min-height: 0;
-	vertical-align: middle;
-}
-
-/*column contener for name and price*/
-columnConteneurMenuPrix {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	min-height: 0;
-	vertical-align: middle;
-	margin-top: 1.5em;
-}
-
-/*contener for languages column*/
-conteneur2 {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+	margin-top: 0.5em;
+	height: fit-content;
+	align-items: center;
 }
 
 /*contener for languages rows*/
-conteneur3 {
+languageR {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 }
 
-/*contener for single menu*/
-conteneurMenu {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	flex-grow: 1;
-	flex-basis: 0;
-}
-
-/*column contener for single menu during print*/
-columnPrintConteneurMenu {
-	height: 297mm;
-	width: 210mm;
+/*contener for single menuName*/
+menuC {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 }
 
-/* raw contener for single menu during print*/
-rawPrintConteneurMenu {
+/*column contener for single menuName during print*/
+printC {
+	display: flex;
+	height: 297mm;
+	width: 210mm;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+/* raw contener for single menuName during print*/
+printR {
 	display: flex;
 	flex-direction: raw;
 	width: 210mm;
 	height: 297mm;
 	justify-content: space-between;
-	font-size: 90%;
+	font-size: 80%;
 	padding: 4mm;
 }
 
 /*contener for buttons*/
-conteneurButtons {
+buttonsR {
 	display: flex;
 	flex-direction: row;
-	justify-content:space-around;
+	justify-content: space-around;
 	flex-wrap: wrap;
 }
 
@@ -214,4 +178,13 @@ body {
 		width: 210mm;
 		height: 297mm;
 	}
+}
+
+.centerR {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	min-height: 0;
 }

@@ -14,16 +14,16 @@
 	function showLanguageMenu() {
 		var res = "";
 
-		res += "<conteneur3>";
-		res += "<conteneur2>";
+		res += "<languageR>";
+		res += "<languageC>";
 		res += "<img src=\"https://simon-ameye.github.io/brume-menu/fr.svg\" width=\"60\" height=auto onclick=\"actualLanguage=0;fetchFunction()\"></img>";
-		res += "<p7 " + (actualLanguage == 0 ? "class = actualMenuButton" : "") + " onclick=\"actualLanguage=0;fetchFunction()\">FR</p7>";
-		res += "</conteneur2>";
-		res += "<conteneur2>";
+		res += "<language " + (actualLanguage == 0 ? "class = actualMenuButton" : "") + " onclick=\"actualLanguage=0;fetchFunction()\">FR</language>";
+		res += "</languageC>";
+		res += "<languageC>";
 		res += "<img src=\"https://simon-ameye.github.io/brume-menu/en.svg\" width=\"60\" height=auto onclick=\"actualLanguage=1;fetchFunction()\"></img>";
-		res += "<p7 " + (actualLanguage == 1 ? "class = actualMenuButton" : "") + " onclick=\"actualLanguage=1;fetchFunction()\">EN</p7>";
-		res += "</conteneur2>";
-		res += "</conteneur3>";
+		res += "<language " + (actualLanguage == 1 ? "class = actualMenuButton" : "") + " onclick=\"actualLanguage=1;fetchFunction()\">EN</language>";
+		res += "</languageC>";
+		res += "</languageR>";
 		return (res);
 	}
 
@@ -33,22 +33,22 @@
 	function showBottomMenus() {
 		var res = "";
 
-		res += "<conteneurButtons>";
-		res += "<p7 onclick=\"printMenu()\">Print<\/p7>";
-		res += "<a href=\"https:\/\/github.com\/simon-ameye\/brume-menu\" target=\"_blank\"><p7>Edit<\/p7><\/a>";
-		res += "</conteneurButtons>";
+		res += "<buttonsR>";
+		res += "<language onclick=\"printMenu()\">Print<\/language>";
+		res += "<a href=\"https:\/\/github.com\/simon-ameye\/brume-menu\" target=\"_blank\"><language>Edit<\/language><\/a>";
+		res += "</buttonsR>";
 		return res;
 	}
 
 	//creates a new window with only the content of a dif to allow user to print it
 	//print a div
 	function printMenu() {
-		var divContents = document.getElementsByTagName('conteneurMenu')[0].innerHTML;
+		var divContents = document.getElementsByTagName('menuC')[0].innerHTML;
 		var a = window.open('', '', 'height=500, width=500');
 		a.document.write('<link rel="stylesheet" href="menu.css">');
-		a.document.write('<html><body><rawPrintConteneurMenu><columnPrintConteneurMenu>');
+		a.document.write('<html><body><printR><printC>');
 		a.document.write(divContents);
-		a.document.write('</columnPrintConteneurMenu></rawPrintConteneurMenu></body></html>');
+		a.document.write('</printC></printR></body></html>');
 
 		//Degueulasse, please find a better way to wait until page loaded before print
 		setTimeout(function () {
@@ -60,7 +60,7 @@
 	function showTabs(menuNames) {
 		var res = "";
 
-		res += "<conteneurButtons>";
+		res += "<buttonsR>";
 		for (i = 0; i < menuNames.length; i++) {
 			if (i == actualMenu) {
 				res += "<button class = actualMenuButton onclick=\"actualMenu= " + i + ";fetchFunction()\">" + menuNames[i] + "</button>"
@@ -69,7 +69,7 @@
 				res += "<button onclick=\"actualMenu= " + i + ";fetchFunction()\">" + menuNames[i] + "</button>"
 			}
 		}
-		res += "</conteneurButtons>";
+		res += "</buttonsR>";
 		return (res);
 	}
 
@@ -79,6 +79,8 @@
 		var lines = bloc.split('\n');
 		var words = "";
 		var word = "";
+		var name = "";
+		var price = "";
 
 		var i;
 		var j;
@@ -97,28 +99,30 @@
 					//unknown title will get default style
 					switch (header[j]) {
 						case "menu":
-							//res += "<p1>" + word + "</p1>";
+							//res += "<menu>" + word + "</menu>";
 							break;
 						case "categorie":
-							res += "<p2>" + word + "</p2>";
+							res += "<cathegory class = centerR>" + word + "</cathegory>";
 							break;
 						case "produit":
-							res += "<columnConteneurMenuPrix><conteneurMenuPrix>"; //A name MUST be followed by a price
-							res += "<p4></p4>";
-							res += "<p3>" + word + "</p3>";
+							name = word; //A name MUST be followed by a price
 							break;
 						case "prix":
-							res += "<p4>" + parseFloat(word) + "€" + "</p4>";
-							res += "</conteneurMenuPrix></columnConteneurMenuPrix>"; //A name MUST be followed by a price
+							price = parseFloat(word) + "€";
+							res += "<namePriceR>"
+							res += "<price class = invisible>" + price + "</price>";
+							res += "<name>" + name + "</name>";
+							res += "<price>" + price + "</price>";
+							res += "</namePriceR>"
 							break;
 						case "description":
-							res += "<p5>" + word + "</p5>";
+							res += "<description class = centerR>" + word + "</description>";
 							break;
 						case "commentaire":
-							res += "<p6>" + word + "</p6>";
+							res += "<comment class = centerR>" + word + "</comment>";
 							break;
 						default:
-							res += "<p>" + word + "</p>";
+							res += "<default class = centerR>" + word + "</default>";
 					}
 				}
 			}
@@ -162,9 +166,9 @@
 		res += showLanguageMenu();
 		res += processBloc(intro, header);
 		res += showTabs(menuNames);
-		res += "<conteneurMenu>";
+		res += "<menuC>";
 		res += processBloc(menus[actualMenu], header);
-		res += "</conteneurMenu>";
+		res += "</menuC>";
 		res += "<br>"
 		res += "<br>"
 		res += "<br>"
