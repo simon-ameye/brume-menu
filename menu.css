@@ -81,6 +81,8 @@ language {
 	font-size: 150%;
 	font-weight: 300;
 	min-height: 0;
+	margin-left: 0.3em;
+	margin-right: 0.3em;
 }
 
 /*contener for name and price*/

@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="menu.css">
 
 <script>
-	var tableDelimiter = '_'
+	var tableDelimiter = '_';
 
 	var actualLanguage = 0;
 	var actualMenu = 0;
@@ -24,12 +24,8 @@
 		var res = "";
 
 		res += "<languageR>";
-		res += "<languageC>";
 		res += "<language " + (actualLanguage == 0 ? "class = actualMenuButton" : "") + " onclick=\"actualLanguage=0;showMenu()\">Français</language>";
-		res += "</languageC>";
-		res += "<languageC>";
 		res += "<language " + (actualLanguage == 1 ? "class = actualMenuButton" : "") + " onclick=\"actualLanguage=1;showMenu()\">English</language>";
-		res += "</languageC>";
 		res += "</languageR>";
 		return (res);
 	}
@@ -155,6 +151,8 @@
 	//returns formated table as HTML and also some other stuff
 	function showMenu() {
 		var res = "";
+
+		menuNames = getMenuNames(menus);
 		res += "<body>";
 		res += showLanguageMenu();
 		res += processBloc(intro, header);
