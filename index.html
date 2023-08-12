@@ -3,43 +3,35 @@
 <meta charset="utf-8">
 <title>Menu Brume</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <link rel="stylesheet" href="menu.css">
 
 <script>
 	var tableDelimiter = '_';
-
 	var actualLanguage = 0;
 	var actualMenu = 0;
-
 	var header;
 	var corpus;
 	var blocs;
 	var intro;
-	var menus;
-	var nbmenus;
 	var menuNames;
+	var menuContents;
 
+	//show language selection tabs
 	function showLanguageMenu() {
 		var res = "";
 
-		res += "<languageR>";
 		res += "<language " + (actualLanguage == 0 ? "class = actualMenuButton" : "") + " onclick=\"actualLanguage=0;showMenu()\">Français</language>";
 		res += "<language " + (actualLanguage == 1 ? "class = actualMenuButton" : "") + " onclick=\"actualLanguage=1;showMenu()\">English</language>";
-		res += "</languageR>";
 		return (res);
 	}
-
 
 	//shows the print menu
 	//one onclick button per menu
 	function showBottomMenus() {
 		var res = "";
 
-		res += "<buttonsR>";
 		res += "<language onclick=\"printMenu()\">Print<\/language>";
 		res += "<a href=\"https:\/\/github.com\/simon-ameye\/brume-menu\" target=\"_blank\"><language>Edit<\/language><\/a>";
-		res += "</buttonsR>";
 		return res;
 	}
 
@@ -60,19 +52,23 @@
 	}
 
 	//show menu tabs
-	function showTabs(menuNames) {
+	function showTabs() {
 		var res = "";
+		var menuName = "";
+		var menuNameRaw = "";
 
-		res += "<buttonsR>";
 		for (i = 0; i < menuNames.length; i++) {
+			menuNameRaw = menuNames[i].split(tableDelimiter); //select actual menu name
+			menuName = menuNameRaw[0]; //select right language
+			if (actualLanguage == 1 && menuNameRaw[1])
+				menuName = menuNameRaw[1];
 			if (i == actualMenu) {
-				res += "<button class = actualMenuButton onclick=\"actualMenu= " + i + ";showMenu()\">" + menuNames[i] + "</button>"
+				res += "<button class = actualMenuButton onclick=\"actualMenu= " + i + ";showMenu()\">" + menuName + "</button>"
 			}
 			else {
-				res += "<button onclick=\"actualMenu= " + i + ";showMenu()\">" + menuNames[i] + "</button>"
+				res += "<button onclick=\"actualMenu= " + i + ";showMenu()\">" + menuName + "</button>"
 			}
 		}
-		res += "</buttonsR>";
 		return (res);
 	}
 
@@ -102,7 +98,7 @@
 					//unknown title will get default style
 					switch (header[j]) {
 						case "menu":
-							//res += "<menu>" + word + "</menu>";
+							//res += "<menu>" + word + "</menu>"; //shows the menu name
 							break;
 						case "categorie":
 							res += "<cathegory class = centerR>" + word + "</cathegory>";
@@ -133,43 +129,51 @@
 		return (res);
 	}
 
-	//get menu names, depending on language
-	function getMenuNames(menus) {
-		res = [];
-		var words;
-
-		for (i = 0; i < menus.length; i++) {
-			words = menus[i].split(tableDelimiter);
-			if (actualLanguage == 1 && words[1])
-				res.push(words[1]);
-			else
-				res.push(words[0]);
-		}
-		return (res);
-	}
-
 	//returns formated table as HTML and also some other stuff
 	function showMenu() {
 		var res = "";
 
-		menuNames = getMenuNames(menus);
+		//menuNames = getMenuNames(menus);
 		res += "<body>";
+		res += "<languageR>";
 		res += showLanguageMenu();
+		res += "</languageR>";
 		res += processBloc(intro, header);
-		res += showTabs(menuNames);
+		res += "<buttonsR>";
+		res += showTabs();
+		res += "</buttonsR>";
 		res += "<menuC>";
-		res += processBloc(menus[actualMenu], header);
+		res += processBloc(menuContents[actualMenu], header);
 		res += "</menuC>";
 		res += "<br>"
 		res += "<br>"
 		res += "<br>"
+		res += "<buttonsR>";
 		res += showBottomMenus();
+		res += "</buttonsR>";
 		res += "</body>";
 		document.getElementById('content').innerHTML = res;
 	}
 
+	//get first lines of each string of an array of string
+	function getFirstLines(array) {
+		return array.map(str => {
+			const lines = str.split('\n'); //split the string into lines
+			return lines[0]; //return the first line
+		});
+	}
+
+	//get all lines except first of each string of an array of string
+	function getOtherLines(array) {
+		return array.map(str => {
+			const lines = str.split('\n'); //split the string into lines
+			lines.shift(); //remove the first line
+			return lines.join('\n'); //join the remaining lines back into a string
+		});
+	}
+
 	//processes the menu.menu and feeds the HTML text to content
-	function processMenu(menuFile) {
+	function loadElements(menuFile) {
 		var cleanInput = menuFile;
 		cleanInput = cleanInput.replace(/(\r\n)/gm, "\n"); //set \n as delimiter by replacing \r\n
 		cleanInput = cleanInput.replace(/(\r)/gm, "\n"); //set \n as delimiter by replacing \r
@@ -180,21 +184,21 @@
 		corpus = cleanInput.split('\n').slice(1).join('\n'); //corpus is the rest
 		blocs = corpus.split(RegExp("\n(?=[^" + tableDelimiter + "])")); //each new row starting with (not a delimiter) is the begining of a new bloc
 		intro = blocs[0]; //first bloc is the intro
-		menus = blocs.slice(1); //other blocs are menus
-		nbmenus = menus.length;
-		menuNames = getMenuNames(menus);
+		menus = blocs.slice(1); //other blocs are menus. Includes menu names
+		menuNames = getFirstLines(menus); //first line of each menu is the name
+		menuContents = getOtherLines(menus); //rest is the content
 	}
 
 	//fetches the table from server
-	async function fetchMenu() {
+	async function initMenu() {
 		let response = await fetch('menu.menu');
 		let menuFile = await response.text();
-		processMenu(menuFile);
+		loadElements(menuFile);
 		showMenu();
 	}
 </script>
 
 <div id="content"></div>
-<script>fetchMenu();</script>
+<script>initMenu();</script>
 
 </html>
