@@ -30,9 +30,9 @@
 	function showBottomMenus() {
 		var res = "";
 
-		res += `<links onclick="printMenu()">print</links>`;
-		res += `<a href="https://github.com/simon-ameye/brume-menu" target="_blank"><links>my GitHub</links></a>`;
-		res += `<a href="https://simon-ameye.github.io/brume-menu/editor.html" target="_blank"><links>editor</links></a>`;
+		res += '<links onclick="printMenu()">print</links>';
+		res += '<a href="https://github.com/simon-ameye/brume-menu" target="_blank"><links>my GitHub</links></a>';
+		res += '<a href="https://simon-ameye.github.io/brume-menu/editor.html" target="_blank"><links>editor</links></a>';
 		return res;
 	}
 
@@ -64,10 +64,10 @@
 			if (actualLanguage == 1 && menuNameRaw[1])
 				menuName = menuNameRaw[1];
 			if (i == actualMenu) {
-				res += `<button class = actualMenuButton onclick="actualMenu= ` + i + `;showMenu()">` + menuName + `</button>`;
+				res += '<button class = actualMenuButton onclick="actualMenu= ' + i + ';showMenu()">' + menuName + '</button>';
 			}
 			else {
-				res += `<button onclick="actualMenu= ` + i + `;showMenu()">` + menuName + `</button>`;
+				res += '<button onclick="actualMenu= ' + i + ';showMenu()">' + menuName + '</button>';
 			}
 		}
 		return (res);
