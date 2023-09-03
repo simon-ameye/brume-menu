@@ -85,6 +85,21 @@ language {
 	margin-right: 0.3em;
 }
 
+/*for links box*/
+links {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	text-align: center;
+	color: rgb(0, 0, 0);
+	font-family: 'Oswald', sans-serif;
+	font-size: 70%;
+	font-weight: 300;
+	min-height: 0;
+	margin-left: 0.3em;
+	margin-right: 0.3em;
+}
+
 /*contener for name and price*/
 namePriceR {
 	display: flex;
