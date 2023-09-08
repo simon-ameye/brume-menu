@@ -102,6 +102,7 @@
 							//res += "<menu>" + word + "</menu>"; //shows the menu name
 							break;
 						case "categorie":
+							res += "<hr>";
 							res += "<cathegory class = centerR>" + word + "</cathegory>";
 							break;
 						case "produit":
@@ -141,7 +142,6 @@
 		res += "<buttonsC>";
 		res += showTabs();
 		res += "</buttonsC>";
-		res += "<hr>";
 		res += "<menuC>";
 		res += processBloc(menuContents[actualMenu], header);
 		res += "</menuC>";
