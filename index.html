@@ -3,7 +3,7 @@
 <meta charset="utf-8">
 <title>Menu Brume</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="beta.css">
+<link rel="stylesheet" href="menu.css">
 
 <script>
 	var tableDelimiter = '_';
@@ -41,7 +41,7 @@
 	function printMenu() {
 		var divContents = document.getElementsByTagName('menuC')[0].innerHTML;
 		var a = window.open('', '', 'height=500, width=500');
-		a.document.write('<link rel="stylesheet" href="beta.css">');
+		a.document.write('<link rel="stylesheet" href="menu.css">');
 		a.document.write('<html><body><printR><printC>');
 		a.document.write(divContents);
 		a.document.write('</printC></printR></body></html>');
