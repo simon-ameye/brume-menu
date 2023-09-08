@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+
+default {
+	color: rgb(255, 0, 0);
+}
+
+/*for menuName*/
+menuName {
+	color: rgb(0, 0, 0);
+	font-family: 'Oswald', sans-serif;
+	font-size: 200%;
+	font-weight: 200;
+	margin-top: 0.4em;
+	min-height: 0;
+}
+
+/*for categorie*/
+cathegory {
+	text-align: center;
+	color: rgb(0, 0, 0);
+	font-family: 'Yeseva One', cursive;
+	font-size: 250%;
+	font-weight: bolder;
+	margin-top: 0.6em;
+	min-height: 0;
+}
+
+/*for nom*/
+name {
+	text-align: left;
+	color: rgb(0, 0, 0);
+	font-family: 'Oswald', sans-serif;
+	font-size: 170%;
+	font-weight: 200;
+	text-transform: uppercase;
+}
+
+/*for prix*/
+price {
+	text-align: right;
+	color: rgb(0, 0, 0);
+	font-family: 'Oswald', sans-serif;
+	font-size: 140%;
+	font-weight: 200;
+}
+
+.invisible {
+	visibility: hidden;
+}
+
+/*for description*/
+description {
+	text-align: left;
+	color: rgb(0, 0, 0);
+	font-family: 'Oswald', sans-serif;
+	font-size: 140%;
+	font-weight: 200;
+	margin-top: 0.4em;
+}
+
+/*for commentaire*/
+comment {
+	text-align: center;
+	color: rgb(0, 0, 0);
+	font-family: 'Oswald', sans-serif;
+	font-size: 160%;
+	font-weight: 200;
+	margin-top: 0.5em;
+	min-height: 0;
+}
+
+/*for language box*/
+language {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	color: rgb(0, 0, 0);
+	font-family: 'Oswald', sans-serif;
+	font-size: 150%;
+	font-weight: lighter;
+	min-height: 0;
+	margin-left: 0.3em;
+	margin-right: 0.3em;
+}
+
+/*for links box*/
+links {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	text-align: center;
+	color: rgb(0, 0, 0);
+	font-family: 'Oswald', sans-serif;
+	font-size: 70%;
+	font-weight: 300;
+	min-height: 0;
+	margin-left: 0.3em;
+	margin-right: 0.3em;
+}
+
+/*contener for name and price*/
+namePriceR {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	min-height: 0;
+	margin-top: 1.3em;
+	height: fit-content;
+	align-items: center;
+}
+
+/*contener for languages rows*/
+languageR {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+/*contener for single menuName*/
+menuC {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+/*column contener for single menuName during print*/
+printC {
+	display: flex;
+	height: 297mm;
+	width: 210mm;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+/* raw contener for single menuName during print*/
+printR {
+	display: flex;
+	flex-direction: raw;
+	width: 210mm;
+	height: 297mm;
+	justify-content: space-between;
+	font-size: 80%;
+	padding: 4mm;
+}
+
+/*contener for buttons*/
+buttonsR {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+/*contener for buttons*/
+buttonsC {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+button {
+	background-color: inherit;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	flex-grow: 1;
+	flex-basis: 0;
+	color: rgb(0, 0, 0);
+	font-family: 'Yeseva one', cursive;
+	font-size: 150%;
+	margin-top: 1em;
+}
+
+.actualMenuButton {
+	background-color: rgb(0, 0, 0);
+	color: rgb(255, 255, 255);
+	border-color: black;
+}
+
+.actualLanguageButton {
+	font-weight: bold;
+}
+
+@page {
+	size: A4;
+}
+
+body {
+	justify-content: center;
+}
+
+@media print {
+
+	html,
+	body {
+		background-color: rgb(255, 255, 255);
+		width: 210mm;
+		height: 297mm;
+	}
+}
+
+.centerR {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	min-height: 0;
+}
