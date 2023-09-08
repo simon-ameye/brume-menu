@@ -191,7 +191,7 @@
 
 	//fetches the table from server
 	async function initMenu() {
-		let response = await fetch('menubeta.menu');
+		let response = await fetch('menu.menu');
 		let menuFile = await response.text();
 		loadElements(menuFile);
 		showMenu();
