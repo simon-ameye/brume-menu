@@ -176,9 +176,11 @@ button {
 	color: rgb(0, 0, 0);
 	font-family: 'Yeseva one', cursive;
 	text-align: right;
-	font-size: 170%;
-	padding-top: 1.1em;
-	padding-bottom: 1.1em;
+	font-size: 200%;
+	margin-top: 0.2em;
+	padding-top: 0.4em;
+	padding-bottom: 0.4em;
+	margin-bottom: 0.2em;
 }
 
 .actualMenuButton {
