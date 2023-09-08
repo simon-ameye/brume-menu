@@ -3,7 +3,7 @@
 <meta charset="utf-8">
 <title>Menu Brume</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="menu.css">
+<link rel="stylesheet" href="beta.css">
 
 <script>
 	var tableDelimiter = '_';
@@ -20,8 +20,8 @@
 	function showLanguageMenu() {
 		var res = "";
 
-		res += "<language " + (actualLanguage == 0 ? "class = actualMenuButton" : "") + ` onclick="actualLanguage=0;showMenu()">Français</language>`;
-		res += "<language " + (actualLanguage == 1 ? "class = actualMenuButton" : "") + ` onclick="actualLanguage=1;showMenu()">English</language>`;
+		res += "<language " + (actualLanguage == 0 ? "class = actualLanguageButton" : "") + ` onclick="actualLanguage=0;showMenu()">Français</language>`;
+		res += "<language " + (actualLanguage == 1 ? "class = actualLanguageButton" : "") + ` onclick="actualLanguage=1;showMenu()">English</language>`;
 		return (res);
 	}
 
@@ -41,7 +41,7 @@
 	function printMenu() {
 		var divContents = document.getElementsByTagName('menuC')[0].innerHTML;
 		var a = window.open('', '', 'height=500, width=500');
-		a.document.write('<link rel="stylesheet" href="menu.css">');
+		a.document.write('<link rel="stylesheet" href="beta.css">');
 		a.document.write('<html><body><printR><printC>');
 		a.document.write(divContents);
 		a.document.write('</printC></printR></body></html>');
@@ -102,6 +102,7 @@
 							//res += "<menu>" + word + "</menu>"; //shows the menu name
 							break;
 						case "categorie":
+							res += "<hr>";
 							res += "<cathegory class = centerR>" + word + "</cathegory>";
 							break;
 						case "produit":
@@ -110,13 +111,12 @@
 						case "prix":
 							price = parseFloat(word) + "€";
 							res += "<namePriceR>"
-							res += "<price class = invisible>" + price + "</price>";
 							res += "<name>" + name + "</name>";
 							res += "<price>" + price + "</price>";
 							res += "</namePriceR>"
 							break;
 						case "description":
-							res += "<description class = centerR>" + word + "</description>";
+							res += "<description>" + word + "</description>";
 							break;
 						case "commentaire":
 							res += "<comment class = centerR>" + word + "</comment>";
@@ -139,9 +139,9 @@
 		res += showLanguageMenu();
 		res += "</languageR>";
 		res += processBloc(intro, header);
-		res += "<buttonsR>";
+		res += "<buttonsC>";
 		res += showTabs();
-		res += "</buttonsR>";
+		res += "</buttonsC>";
 		res += "<menuC>";
 		res += processBloc(menuContents[actualMenu], header);
 		res += "</menuC>";

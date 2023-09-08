@@ -22,13 +22,13 @@ cathegory {
 	font-family: 'Yeseva One', cursive;
 	font-size: 250%;
 	font-weight: bolder;
-	margin-top: 0.6em;
+	margin-top: 1em;
 	min-height: 0;
 }
 
 /*for nom*/
 name {
-	text-align: center;
+	text-align: left;
 	color: rgb(0, 0, 0);
 	font-family: 'Oswald', sans-serif;
 	font-size: 170%;
@@ -43,6 +43,7 @@ price {
 	font-family: 'Oswald', sans-serif;
 	font-size: 140%;
 	font-weight: 200;
+	padding-left: 1em;
 }
 
 .invisible {
@@ -51,7 +52,7 @@ price {
 
 /*for description*/
 description {
-	text-align: center;
+	text-align: left;
 	color: rgb(0, 0, 0);
 	font-family: 'Oswald', sans-serif;
 	font-size: 140%;
@@ -79,7 +80,7 @@ language {
 	color: rgb(0, 0, 0);
 	font-family: 'Oswald', sans-serif;
 	font-size: 150%;
-	font-weight: 300;
+	font-weight: lighter;
 	min-height: 0;
 	margin-left: 0.3em;
 	margin-right: 0.3em;
@@ -106,7 +107,7 @@ namePriceR {
 	flex-direction: row;
 	justify-content: space-between;
 	min-height: 0;
-	margin-top: 1.3em;
+	margin-top: 3em;
 	height: fit-content;
 	align-items: center;
 }
@@ -116,6 +117,8 @@ languageR {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
+	padding-top: 1em;
+	padding-bottom: 1em;
 }
 
 /*contener for single menuName*/
@@ -153,6 +156,16 @@ buttonsR {
 	flex-wrap: wrap;
 }
 
+/*contener for buttons*/
+buttonsC {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	/* flex-wrap: wrap; */
+	padding-top: 3em;
+	padding-bottom: 1em;
+}
+
 button {
 	background-color: inherit;
 	border: none;
@@ -160,23 +173,30 @@ button {
 	cursor: pointer;
 	display: flex;
 	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	flex-grow: 1;
-	flex-basis: 0;
+	justify-content: right;
 	color: rgb(0, 0, 0);
-	border-bottom: solid;
 	font-family: 'Yeseva one', cursive;
-	font-size: 150%;
-	font-weight: bold;
-	margin-top: 1em;
-	border-color: black;
+	text-align: right;
+	font-size: 200%;
+	font-weight: bolder;
+	margin-top: 0.2em;
+	padding-top: 0.4em;
+	padding-bottom: 0.4em;
+	margin-bottom: 0.2em;
+	margin-right: 0em;
+	padding-right: 0em;
 }
 
 .actualMenuButton {
 	background-color: rgb(0, 0, 0);
 	color: rgb(255, 255, 255);
 	border-color: black;
+	/* font-size: 220%; */
+	/* justify-content: center; */
+}
+
+.actualLanguageButton {
+	font-weight: bold;
 }
 
 @page {
@@ -204,4 +224,12 @@ body {
 	align-items: center;
 	flex-wrap: wrap;
 	min-height: 0;
+}
+
+hr {
+	margin-top: 1.2cm;
+	border: none;
+	height: 1px;
+	background-color: #000000;
+	width: 100%;
 }
