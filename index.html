@@ -133,7 +133,6 @@
 	//returns formated table as HTML and also some other stuff
 	function showMenu() {
 		var res = "";
-
 		res += "<body>";
 		res += "<brumeR>";
 		res += "<brumeC>";
@@ -202,9 +201,19 @@
 		loadElements(menuFile);
 		showMenu();
 	}
+
+	window.addEventListener('scroll', () => {
+		document.getElementById('backgroundBrume').style.opacity = 100 - window.scrollY / 4 + "%";
+		document.getElementById('backgroundBrume').style.top = - window.scrollY / 20 + "%";
+	});
 </script>
 
 <div id="content"></div>
+<div class=backgroundImage id="backgroundBrume"></div>
 <script>initMenu();</script>
+<script>
+
+
+</script>
 
 </html>
