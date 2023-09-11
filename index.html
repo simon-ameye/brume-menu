@@ -202,15 +202,43 @@
 		showMenu();
 	}
 
+	function transformBackground(scroll) {
+		{	//Brightening
+			let min = 70;
+			let max = 90;
+			let tau = 0.1;
+			let value = max - scroll * tau;
+			let limitedValue = value > min ? value : min;
+			document.getElementById('backgroundBrume').style.opacity = limitedValue + "%";
+		}
+		{	//Scroll
+			let min = 0;
+			let max = 100;
+			let tau = 0.03;
+			let value = min + scroll * tau;
+			let limitedValue = value < max ? value : max;
+			document.getElementById('backgroundBrume').style.top = - limitedValue + "%";
+		}
+		{	//Blurr
+			let min = 0;
+			let max = 2;
+			let tau = 0.02;
+			let value = min + scroll * tau;
+			let limitedValue = value < max ? value : max;
+			console.log(limitedValue);
+			document.getElementById('backgroundBrume').style.filter = "blur(" + limitedValue + "px)";
+		}
+	}
+
 	window.addEventListener('scroll', () => {
-		document.getElementById('backgroundBrume').style.opacity = 100 - window.scrollY / 4 + "%";
-		document.getElementById('backgroundBrume').style.top = - window.scrollY / 20 + "%";
+		transformBackground(window.scrollY);
 	});
 </script>
 
 <div id="content"></div>
 <div class=backgroundImage id="backgroundBrume"></div>
 <script>initMenu();</script>
+<script>transformBackground(0);</script>
 <script>
 
 
