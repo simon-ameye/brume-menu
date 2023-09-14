@@ -112,8 +112,9 @@ logoC {
 }
 
 .instaLogo {
-	height: 1cm;
+	height: 0.8cm;
 	width: auto;
+	margin-bottom: 0.5cm;
 }
 
 /*contener for name and price*/
@@ -283,8 +284,6 @@ brumeR {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-	margin-bottom: 1.5em;
-	margin-top: 1em;
 }
 
 /*for brume*/
@@ -310,4 +309,11 @@ brumeSlogan {
 	font-size: 80%;
 	font-weight: bolder;
 	text-transform: uppercase;
+}
+
+homePageC {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100vh;
 }

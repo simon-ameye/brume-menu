@@ -122,11 +122,11 @@
 	//returns formated table as HTML and also some other stuff
 	function showMenu() {
 		var res = "";
-		res += "<languageR>";
+		res += "<languageR id=scrollTarget>";
 		res += showLanguageMenu();
 		res += "</languageR>";
 		res += processBloc(intro, header);
-		res += `<buttonsC id="menuButtons">`;
+		res += `<buttonsC>`;
 		res += showTabs();
 		res += "</buttonsC>";
 		res += "<menuC>";
@@ -182,7 +182,7 @@
 	}
 
 	function scrollShowMenu() {
-		document.getElementById("menuButtons").scrollIntoView({ behavior: "smooth" });
+		document.getElementById("scrollTarget").scrollIntoView({ behavior: "smooth" });
 		showMenu();
 	}
 
@@ -190,7 +190,7 @@
 		{	//Brightening
 			let startValue = 90;
 			let endValue = 50;
-			let maxScroll = 400;
+			let maxScroll = 800;
 			let value = startValue + (endValue - startValue) * scroll / maxScroll;
 			let limitedValue = clamp(value, endValue, startValue);
 			document.getElementById('backgroundBrume').style.opacity = limitedValue + "%";
@@ -198,7 +198,7 @@
 		{	//Scroll
 			let startValue = 0;
 			let endValue = 100;
-			let maxScroll = 3000;
+			let maxScroll = 4000;
 			let value = startValue + (endValue - startValue) * scroll / maxScroll;
 			let limitedValue = clamp(value, startValue, endValue);
 			document.getElementById('backgroundBrume').style.top = - limitedValue + "%";
@@ -207,16 +207,19 @@
 
 	window.addEventListener('scroll', () => {
 		transformBackground(window.scrollY);
+		console.log(window.scrollY);
 	});
 </script>
 
 <body>
-	<brumeR>
-		<brumeC>
-			<brume>Brume</brume>
-			<brumeSlogan>café cosmopolite</brumeSlogan>
-		</brumeC>
-	</brumeR>
+	<homePageC>
+		<brumeR>
+			<brumeC>
+				<brume>Brume</brume>
+				<brumeSlogan>café cosmopolite</brumeSlogan>
+			</brumeC>
+		</brumeR>
+	</homePageC>
 	<logoR>
 		<logoC>
 			<a href="https://www.instagram.com/brume.coffee.nice/">
