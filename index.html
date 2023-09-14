@@ -203,14 +203,6 @@
 			let limitedValue = clamp(value, startValue, endValue);
 			document.getElementById('backgroundBrume').style.top = - limitedValue + "%";
 		}
-		{	//Blurr
-			let startValue = 0;
-			let endValue = 2;
-			let maxScroll = 400;
-			let value = startValue + (endValue - startValue) * scroll / maxScroll;
-			let limitedValue = clamp(value, startValue, endValue);
-			document.getElementById('backgroundBrume').style.filter = "blur(" + limitedValue + "px)";
-		}
 	}
 
 	window.addEventListener('scroll', () => {
