@@ -144,7 +144,6 @@ menuC {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	/* background-color: #ffffff; */
 }
 
 /*column contener for single menuName during print*/
@@ -180,7 +179,6 @@ buttonsC {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	/* flex-wrap: wrap; */
 	padding-top: 3em;
 	padding-bottom: 1em;
 }
@@ -223,9 +221,6 @@ button {
 
 body {
 	justify-content: center;
-	/* margin: 0;
-	padding: 0; */
-	/* background-image: url('brumewallpaper.jpg'); */
 }
 
 .backgroundImage {
@@ -247,7 +242,6 @@ body {
 
 	html,
 	body {
-		/* background-color: rgb(255, 255, 255); */
 		width: 210mm;
 		height: 297mm;
 	}
@@ -295,7 +289,6 @@ brumeC {
 
 brume {
 	text-align: center;
-	/* color: rgb(0, 0, 0); */
 	font-family: 'Yeseva One', cursive;
 	font-size: 400%;
 	font-weight: bolder;
@@ -304,7 +297,6 @@ brume {
 
 brumeSlogan {
 	text-align: right;
-	/* color: rgb(0, 0, 0); */
 	font-family: 'Oswald', sans-serif;
 	font-size: 80%;
 	font-weight: bolder;
