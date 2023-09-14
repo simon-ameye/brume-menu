@@ -53,10 +53,10 @@
 			if (actualLanguage == 1 && menuNameRaw[1])
 				menuName = menuNameRaw[1];
 			if (i == actualMenu) {
-				res += '<button class = actualMenuButton onclick="actualMenu= ' + i + ';showMenu()">' + menuName + '</button>';
+				res += '<button class = actualMenuButton onclick="actualMenu= ' + i + ';scrollShowMenu()">' + menuName + '</button>';
 			}
 			else {
-				res += '<button onclick="actualMenu= ' + i + ';showMenu()">' + menuName + '</button>';
+				res += '<button onclick="actualMenu= ' + i + ';scrollShowMenu()">' + menuName + '</button>';
 			}
 		}
 		return (res);
@@ -126,7 +126,7 @@
 		res += showLanguageMenu();
 		res += "</languageR>";
 		res += processBloc(intro, header);
-		res += "<buttonsC>";
+		res += `<buttonsC id="menuButtons">`;
 		res += showTabs();
 		res += "</buttonsC>";
 		res += "<menuC>";
@@ -179,6 +179,11 @@
 
 	function clamp(val, min, max) {
 		return val > max ? max : val < min ? min : val;
+	}
+
+	function scrollShowMenu() {
+		document.getElementById("menuButtons").scrollIntoView({ behavior: "smooth" });
+		showMenu();
 	}
 
 	function transformBackground(scroll) {
