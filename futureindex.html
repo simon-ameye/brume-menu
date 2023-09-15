@@ -14,7 +14,7 @@
 	function transformBackground(scroll) {
 		{	//Brightening
 			let startValue = 90;
-			let endValue = 50;
+			let endValue = 0;
 			let maxScroll = 800;
 			let value = startValue + (endValue - startValue) * scroll / maxScroll;
 			let limitedValue = clamp(value, endValue, startValue);
