@@ -112,7 +112,7 @@ logoC {
 }
 
 .instaLogo {
-height: 1cm;
+	height: 1cm;
 	width: auto;
 	margin-bottom: 0.3cm;
 	margin-bottom: 0.3cm;
@@ -294,6 +294,7 @@ brume {
 	font-size: 400%;
 	font-weight: bolder;
 	margin-bottom: -0.2em;
+	color: #000000;
 }
 
 brumeSlogan {
@@ -309,4 +310,65 @@ homePageC {
 	flex-direction: column;
 	justify-content: center;
 	height: 100vh;
+}
+
+a {
+	margin-top: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+	margin-bottom: 0;
+	text-decoration: none;
+}
+
+header {
+	text-align: center;
+	color: rgb(0, 0, 0);
+	font-family: 'Oswald', sans-serif;
+	font-size: 160%;
+	font-weight: 200;
+	margin-left: 1em;
+	margin-top: 1em;
+}
+
+headerR {
+	position: absolute;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+blocC {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+blocR {
+	margin-top: 0.3cm;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+bloc {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-top: 1cm;
+	padding-right: 5mm;
+	padding-left: 5mm;
+	/* border-top: 1px solid; */
+}
+
+photos {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+img {
+	width: 49%;
+	/* padding-bottom: 2%; */
+	margin-bottom: 2%;
+	position: relative;
 }

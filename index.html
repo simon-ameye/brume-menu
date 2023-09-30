@@ -6,7 +6,7 @@
 <meta name="description"
 	content="Coffeeshop proposant du café de spécialité, des gâteaux généreux et des plats cosmopolites et healthy qui suivent les saisons.">
 <link rel="stylesheet" href="menu.css">
-<link rel="stylesheet" href="index.css">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
 
 <script>
 	function clamp(val, min, max) {
@@ -25,7 +25,7 @@
 		{	//Scroll
 			let startValue = 0;
 			let endValue = 100;
-			let maxScroll = 4000;
+			let maxScroll = 1600;
 			let value = startValue + (endValue - startValue) * scroll / maxScroll;
 			let limitedValue = clamp(value, startValue, endValue);
 			document.getElementById('backgroundBrume').style.top = - limitedValue + "%";
@@ -38,6 +38,15 @@
 </script>
 
 <body>
+	<headerR>
+		<a href="index.html">
+			<header style="font-weight: bold">Accueil</header>
+		</a>
+		<a href="menu.html">
+			<header>Menu</header>
+		</a>
+	</headerR>
+
 	<homePageC>
 		<brumeR>
 			<brumeC>
@@ -152,12 +161,12 @@
 			</cathegory>
 		</blocR>
 		<blocR>
-			<a href="https://nice.love-spots.com/coffee-shop/89403-brume-cafe.html" style="text-decoration:none">
+			<a href="https://nice.love-spots.com/coffee-shop/89403-brume-cafe.html">
 				<comment>love-spots</comment>
 			</a>
 		</blocR>
 		<blocR>
-			<a href="https://europeancoffeetrip.com/cafe/brumecoffee-nice/" style="text-decoration:none">
+			<a href="https://europeancoffeetrip.com/cafe/brumecoffee-nice/">
 				<comment>european coffee trip</comment>
 			</a>
 		</blocR>
@@ -168,7 +177,7 @@
 			</a>
 		</blocR>
 		<blocR>
-			<a href="https://www.mediterraneanonmymind.nl/lekker-ontbijt-in-nice/" style="text-decoration:none">
+			<a href="https://www.mediterraneanonmymind.nl/lekker-ontbijt-in-nice/">
 				<comment>mediterraneanonmymind</comment>
 			</a>
 		</blocR>

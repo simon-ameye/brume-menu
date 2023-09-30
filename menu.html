@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Menu de Brume.">
 <link rel="stylesheet" href="menu.css">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
 
 <script>
 	var tableDelimiter = '_';
@@ -199,7 +200,7 @@
 		{	//Scroll
 			let startValue = 0;
 			let endValue = 100;
-			let maxScroll = 4000;
+			let maxScroll = 1600;
 			let value = startValue + (endValue - startValue) * scroll / maxScroll;
 			let limitedValue = clamp(value, startValue, endValue);
 			document.getElementById('backgroundBrume').style.top = - limitedValue + "%";
@@ -212,6 +213,15 @@
 </script>
 
 <body>
+	<headerR>
+		<a href="index.html">
+			<header>Accueil</header>
+		</a>
+		<a href="menu.html">
+			<header style="font-weight: bold">Menu</header>
+		</a>
+	</headerR>
+
 	<homePageC>
 		<brumeR>
 			<brumeC>
